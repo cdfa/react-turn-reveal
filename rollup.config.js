@@ -22,7 +22,7 @@ export default {
       sourcemap: true
     }
   ],
-  external: ["styled-components", "prop-types"], // See https://github.com/transitive-bullshit/create-react-library/issues/89 and https://stackoverflow.com/a/52935366/11144195
+  external: ["styled-components", "prop-types", "react-use"], // See https://github.com/transitive-bullshit/create-react-library/issues/89 and https://stackoverflow.com/a/52935366/11144195
   plugins: [
     external(),
     url(),

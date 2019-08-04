@@ -3,61 +3,44 @@
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
 import * as PropTypes from "prop-types";
+import { useSize } from "react-use";
 
 import Transition from "src/Transition";
 import Direction from "src/Direction";
 
 // noinspection JSUnusedGlobalSymbols
-export default class TurnReveal extends React.PureComponent {
-  static defaultLayout = { width: "100%", height: "100%" };
+const TurnReveal = ({
+  transition,
+  direction,
+  perspective,
+  className,
+  children
+}) => {
+  const [sized, { width, height }] = useSize(() => <Sized />);
 
-  element = React.createRef();
+  const hideAngles = {
+    horizontal: `${getOutAngle(width, perspective)}rad`,
+    vertical: `${getOutAngle(height, perspective)}rad`
+  };
 
-  render() {
-    const {
-      transition,
-      direction,
-      perspective,
-      className,
-      children
-    } = this.props;
+  let style = { position: "absolute" };
+  if (!className) style = { ...style, ...TurnReveal.defaultLayout };
 
-    // On the first render, this.element.current is still null, so we need these default values
-    const hideAngles = {
-      horizontal: "0",
-      vertical: "0"
-    };
-
-    if (this.element.current) {
-      const { width, height } = this.element.current.getBoundingClientRect();
-
-      // Recalculate the angles the element has to turn to disappear
-      hideAngles.horizontal = `${getOutAngle(width, perspective)}rad`;
-      hideAngles.vertical = `${getOutAngle(height, perspective)}rad`;
-    }
-
-    let style = { position: "absolute" };
-    if (!className) style = { ...style, ...TurnReveal.defaultLayout };
-
-    return (
-      <>
-        <div
-          ref={this.element}
-          style={{ position: "absolute", ...TurnReveal.defaultLayout }} // Ugly hack to get parent element's dimensions for responsiveness. Probably won't get easier until css4.
-        />
-        <Animated
-          transition={transition}
-          direction={direction}
-          hideAngles={hideAngles}
-          className={className}
-          style={style}
-        >
-          {children}
-        </Animated>
-      </>
-    );
-  }
-}
+  return (
+    <>
+      {sized}
+      <Animated
+        transition={transition}
+        direction={direction}
+        hideAngles={hideAngles}
+        className={className}
+        style={style}
+      >
+        {children}
+      </Animated>
+    </>
+  );
+};
 
 // Disable react/static-property-placement, because docz will crash, because of the dynamic transition and direction prop types
 // See https://github.com/pedronauck/docz/issues/691
@@ -75,6 +58,16 @@ TurnReveal.propTypes = {
   /** The animated element. */
   children: PropTypes.node.isRequired
 };
+
+TurnReveal.defaultLayout = { width: "100%", height: "100%" };
+
+export default TurnReveal;
+
+const Sized = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute !important;
+`;
 
 const Animated = styled.div`
   ${props => animationProperties(props)}
