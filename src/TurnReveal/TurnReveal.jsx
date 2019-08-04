@@ -41,7 +41,10 @@ export default class TurnReveal extends React.PureComponent {
 
     return (
       <>
-        <div ref={this.element} className={className} style={style} />
+        <div
+          ref={this.element}
+          style={{ position: "absolute", ...TurnReveal.defaultLayout }} // Ugly hack to get parent element's dimensions for responsiveness. Probably won't get easier until css4.
+        />
         <Animated
           transition={transition}
           direction={direction}
