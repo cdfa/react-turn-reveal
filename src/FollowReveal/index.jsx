@@ -1,7 +1,7 @@
 import React from "react";
 import * as PropTypes from "prop-types";
 
-import TurnReveal from "src/TurnReveal/TurnReveal";
+import TurnReveal from "src/TurnReveal";
 import Transition from "src/Transition";
 import Direction from "src/Direction";
 

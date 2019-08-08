@@ -89,7 +89,7 @@
     //   {
     //     "unusedExports": true,
     //     "src": ["src/*", "docs/*"],
-    //     "ignoreExports": ["src/TurnReveal/TurnReveal.jsx"]
+    //     "ignoreExports": ["src/TurnReveal/index.jsx"]
     //   }
     // ]
     "react-hooks/rules-of-hooks": "error",
