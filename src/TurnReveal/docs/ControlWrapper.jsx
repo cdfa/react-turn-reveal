@@ -3,7 +3,7 @@ import transpose from "object-transpose";
 import React from "react";
 
 import Direction from "src/Direction";
-import Transition from "src/Transition";
+import Pose from "src/Pose";
 
 const Container = styled.div`
   display: grid;
@@ -27,15 +27,12 @@ const directions = Object.keys(Direction)
 const arrows = ["→", "↑", "←", "↓"];
 
 // eslint-disable-next-line react/prop-types
-const ControlWrapper = ({ transition, updateReveal, children }) => (
+const ControlWrapper = ({ pose, updateReveal, children }) => (
   <Container>
     {transpose({
       direction: directions,
       place: ["center left", "end center", "center right", "start center"],
-      text:
-        transition === Transition.show
-          ? arrows
-          : arrows.concat(arrows).slice(2, 6) // shift every element 2 positions counter-clockwise
+      text: pose === Pose.closed ? arrows : arrows.concat(arrows).slice(2, 6) // shift every element 2 positions counter-clockwise
     }).map(({ direction, place, text }) => (
       <button
         style={{

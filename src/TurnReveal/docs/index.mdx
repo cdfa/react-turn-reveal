@@ -12,7 +12,7 @@ import { Playground, Props } from "docz";
 import styled from "styled-components";
 
 import Direction from "src/Direction";
-import Transition, { oppositeTransition } from "src/Transition";
+import Pose from "src/Pose";
 import {
   Front,
   PlaceHolderImage,
@@ -20,7 +20,7 @@ import {
 } from "docs/PlayGroundUtils";
 import ControlWrapper from "./ControlWrapper";
 
-import TurnReveal from "../";
+import TurnReveal from "..";
 
 <Props of={TurnReveal} />
 
@@ -35,14 +35,14 @@ Most of the code for running the playground below is moved to `docs/PlayGroundUt
       constructor(props) {
         super(props);
         this.state = {
-          transition: Transition.show,
+          pose: Pose.closed,
           direction: Direction.right
         };
         this.updateReveal = this.updateReveal.bind(this);
       }
       updateReveal(direction) {
         this.setState({
-          transition: oppositeTransition(this.state.transition),
+          pose: this.state.pose === Pose.out ? Pose.closed : Pose.out,
           direction
         });
       }
@@ -50,14 +50,14 @@ Most of the code for running the playground below is moved to `docs/PlayGroundUt
         const perspective = 400;
         return (
           <ControlWrapper
-            transition={this.state.transition}
+            pose={this.state.pose}
             updateReveal={this.updateReveal}
           >
             <div
               style={{ position: "relative", perspective: perspective + "px" }}
             >
               <TurnReveal
-                transition={this.state.transition}
+                pose={this.state.pose}
                 direction={this.state.direction}
                 perspective={perspective}
               >
@@ -82,13 +82,13 @@ Most of the code for running the playground below is moved to `docs/PlayGroundUt
       constructor() {
         super();
         this.state = {
-          transition: Transition.show
+          pose: Pose.closed
         };
         this.handleClick = this.handleClick.bind(this);
       }
       handleClick() {
         this.setState({
-          transition: oppositeTransition(this.state.transition)
+          pose: this.state.pose === Pose.out ? Pose.closed : Pose.out
         });
       }
       render() {
@@ -96,12 +96,12 @@ Most of the code for running the playground below is moved to `docs/PlayGroundUt
         return (
           <CenteringFlexBox>
             <button style={{ width: "fit-content" }} onClick={this.handleClick}>
-              {this.state.transition === Transition.show ? "Show" : "Hide"}
+              {this.state.pose === Pose.closed ? "Closed" : "Out"}
             </button>
             <div style={{ height: "10px" }} />
             <Container style={{ perspective: perspective + "px" }}>
               <TurnReveal
-                transition={this.state.transition}
+                pose={this.state.pose}
                 direction={Direction.left}
                 perspective={perspective}
                 className="half-width"
@@ -109,7 +109,7 @@ Most of the code for running the playground below is moved to `docs/PlayGroundUt
                 <Front>Left</Front>
               </TurnReveal>
               <TurnReveal
-                transition={this.state.transition}
+                pose={this.state.pose}
                 direction={Direction.right}
                 perspective={perspective}
                 className="half-width right"

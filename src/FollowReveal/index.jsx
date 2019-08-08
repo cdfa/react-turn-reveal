@@ -2,7 +2,7 @@ import React from "react";
 import * as PropTypes from "prop-types";
 
 import TurnReveal from "src/TurnReveal";
-import Transition from "src/Transition";
+import Pose from "src/Pose";
 import Direction from "src/Direction";
 
 // noinspection JSUnusedGlobalSymbols
@@ -18,23 +18,23 @@ export default class FollowReveal extends React.Component {
   };
 
   state = {
-    transition: Transition.hide,
+    pose: Pose.out,
     direction: Direction.right
   };
 
   revealRef = React.createRef();
 
-  followMouse = (event, transition) => {
+  followMouse = (event, pose) => {
     event.preventDefault();
     this.setState({
-      transition,
+      pose,
       direction: getClosestEdge(event, this.revealRef.current)
     });
   };
 
   render() {
     const {
-      state: { transition, direction },
+      state: { pose, direction },
       props: { perspective, className, children }
     } = this;
 
@@ -44,7 +44,7 @@ export default class FollowReveal extends React.Component {
     return (
       <>
         <TurnReveal
-          transition={transition}
+          pose={pose}
           direction={direction}
           perspective={perspective}
           className={className}
@@ -52,8 +52,8 @@ export default class FollowReveal extends React.Component {
           {children}
         </TurnReveal>
         <div
-          onMouseEnter={e => this.followMouse(e, Transition.show)}
-          onMouseLeave={e => this.followMouse(e, Transition.hide)}
+          onMouseEnter={e => this.followMouse(e, Pose.closed)}
+          onMouseLeave={e => this.followMouse(e, Pose.out)}
           ref={this.revealRef}
           style={style}
         />

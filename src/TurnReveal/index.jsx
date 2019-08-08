@@ -5,17 +5,11 @@ import styled, { css, keyframes } from "styled-components";
 import * as PropTypes from "prop-types";
 import { useSize } from "react-use";
 
-import Transition from "src/Transition";
+import Pose from "src/Pose";
 import Direction from "src/Direction";
 
 // noinspection JSUnusedGlobalSymbols
-const TurnReveal = ({
-  transition,
-  direction,
-  perspective,
-  className,
-  children
-}) => {
+const TurnReveal = ({ pose, direction, perspective, className, children }) => {
   const [sized, { width, height }] = useSize(() => <Sized />);
 
   const hideAngles = {
@@ -30,7 +24,7 @@ const TurnReveal = ({
     <>
       {sized}
       <Animated
-        transition={transition}
+        pose={pose}
         direction={direction}
         hideAngles={hideAngles}
         className={className}
@@ -42,13 +36,13 @@ const TurnReveal = ({
   );
 };
 
-// Disable react/static-property-placement, because docz will crash, because of the dynamic transition and direction prop types
+// Disable react/static-property-placement, because docz will crash, because of the dynamic pose and direction prop types
 // See https://github.com/pedronauck/docz/issues/691
 // eslint-disable-next-line react/static-property-placement
 TurnReveal.propTypes = {
-  /** The transition to run. Options are defined in src/Transition. */
-  transition: PropTypes.oneOf(Object.keys(Transition)).isRequired,
-  /** The direction in which to run the transition. Options are defined in src/Direction. */
+  /** The pose assume. Options are defined in src/Pose. */
+  pose: PropTypes.oneOf(Object.keys(Pose)).isRequired,
+  /** The direction in which to pose. Options are defined in src/Direction. */
   direction: PropTypes.oneOf(Object.keys(Direction)).isRequired,
   /** The perspective distance in number of pixels. */
   perspective: PropTypes.number.isRequired,
@@ -94,7 +88,7 @@ const animationProperties = props => {
 };
 
 const turnAnimation = ({
-  transition,
+  pose,
   direction,
   hideAngles: { vertical, horizontal }
 }) => {
@@ -116,7 +110,7 @@ const turnAnimation = ({
   // eslint-disable-next-line one-var
   const visibleVector = [0, 0, 0, 0],
     { fromVector, toVector, fromVisibility, toVisibility } =
-      transition === Transition.hide
+      pose === Pose.out
         ? {
             fromVector: visibleVector,
             toVector: hiddenVector,
