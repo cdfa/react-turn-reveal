@@ -1,9 +1,7 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
+    "react-app",
     "plugin:jest/recommended",
     "plugin:jest/style",
     "plugin:eslint-comments/recommended",
@@ -14,18 +12,8 @@
     "prettier-standard/prettier-file",
     "prettier/react"
   ],
-  "env": {
-    "es6": true,
-    "browser": true
-  },
-  "plugins": ["react", "react-hooks", "jsx-a11y", "prettier", "json", "jest", "no-loops", "import", "promise"],
-  "parserOptions": {
-    "sourceType": "module"
-  },
+  "plugins": ["prettier", "json", "jest", "no-loops", "promise"],
   "settings": {
-    "react": {
-      "version": "detect"
-    },
     "import/resolver": "babel-module",
     "import/parsers": {
       "eslint-mdx": [".mdx"]
@@ -101,7 +89,6 @@
     {
       "files": "*.spec.{js,jsx}",
       "env": {
-        "jest": true,
         "jest/globals": true
       }
     },
