@@ -10,5 +10,10 @@
         "extensions": [".js", ".jsx", ".mdx"]
       }
     ]
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["@babel/plugin-transform-runtime"]
+    }
+  }
 }

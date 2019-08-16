@@ -83,7 +83,8 @@
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "promise/prefer-await-to-callbacks": "warn",
-    "no-unused-vars": "warn"
+    "no-unused-vars": "warn",
+    "spaced-comment": "warn"
   },
   "overrides": [
     {
