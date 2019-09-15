@@ -1,19 +1,7 @@
-import { act, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import React from "react";
 
-const sleep = ms => new Promise(resolve => setTimeout(() => resolve(), ms));
-
-export const renderAsync = async (...args) => {
-  let result;
-  await act(async () => {
-    // noinspection JSCheckFunctionSignatures
-    result = render(...args);
-    await sleep(100); // Wait for update from useSize hook
-  });
-  // noinspection JSUnusedAssignment
-  return result;
-};
-
+// eslint-disable-next-line import/prefer-default-export
 export const itRendersChildren = (Component, renderFunction = render) => {
   const childId = "child";
   const childComponent = <div data-testid={childId} />;

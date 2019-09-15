@@ -1,3 +1,7 @@
+import { useSize } from "react-use";
+
+import React from "react";
+
 let isConsoleWarningOrError = false;
 
 beforeEach(() => {
@@ -18,3 +22,6 @@ afterEach(() => {
     throw new Error("Console warnings or errors detected.");
   }
 });
+
+jest.mock("react-use");
+useSize.mockReturnValue([<div />, { width: 0, height: 0 }]);

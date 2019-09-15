@@ -18,7 +18,7 @@ module.exports = {
 
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect",
-    "<rootDir>/test/setup.js"
+    "<rootDir>/test/setup.jsx"
   ],
 
   transform: {

@@ -3,7 +3,7 @@ import React from "react";
 import Direction from "src/Direction";
 import Pose from "src/Pose";
 
-import { itRendersChildren, renderAsync } from "test/utils";
+import { itRendersChildren } from "test/utils";
 
 import TurnReveal from "./";
 
@@ -24,18 +24,15 @@ import TurnReveal from "./";
 // };
 
 describe("<TurnReveal>", () => {
-  itRendersChildren(
-    ({ children }) => (
-      <TurnReveal
-        perspective={400}
-        pose={Pose.closed}
-        direction={Direction.right}
-      >
-        {children}
-      </TurnReveal>
-    ),
-    renderAsync
-  );
+  itRendersChildren(({ children }) => (
+    <TurnReveal
+      perspective={400}
+      pose={Pose.closed}
+      direction={Direction.right}
+    >
+      {children}
+    </TurnReveal>
+  ));
   // Can't test visibility, because it's controlled by the animation. Also see https://github.com/testing-library/jest-dom/issues/124
   // Can't test width with Jest, because the layout isn't actually calculated
   // No tests for the animation being on the correct side, because it would be to complicated in comparison to the actual code
