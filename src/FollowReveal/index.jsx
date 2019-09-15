@@ -56,6 +56,7 @@ export default class FollowReveal extends React.Component {
           onMouseLeave={e => this.followMouse(e, Pose.out)}
           ref={this.revealRef}
           style={style}
+          data-testid="event-catcher"
         />
       </>
     );
@@ -64,8 +65,8 @@ export default class FollowReveal extends React.Component {
 
 const getClosestEdge = (event, element) => {
   const { width, height, top, left } = element.getBoundingClientRect();
-  const l = event.pageX - (left + window.pageXOffset);
-  const t = event.pageY - (top + window.pageYOffset);
+  const l = event.clientX - left;
+  const t = event.clientY - top;
 
   const closestHorizontalEdge =
     t > 0.5 * height
