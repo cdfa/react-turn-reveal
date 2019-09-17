@@ -56,16 +56,16 @@ jobs:
     <<: *environment
     steps:
       - checkout
-      - run: pnpm i jest-junit
+      - run: pnpm i jest-junit codecov
       - run:
           command: npm run test -- --ci --runInBand --reporters=default --reporters=jest-junit
           environment:
-            JEST_JUNIT_OUTPUT: "reports/jest/js-test-results.xml"
+            JEST_JUNIT_OUTPUT_DIR: "reports/jest/js-test-results.xml"
             CI: true
       - store_test_results:
           path: reports
-      - codecov/upload:
-          file: "reports/jest/js-test-results.xml"
+      - store_artifacts:
+          path: coverage
 
   "build docs":
     <<: *environment
