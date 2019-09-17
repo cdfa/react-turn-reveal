@@ -3,6 +3,10 @@ import { render, fireEvent } from "@testing-library/react";
 
 import { itRendersChildren } from "test/utils";
 
+import Pose from "src/Pose";
+
+import Direction from "src/Direction";
+
 import testIds from "../../test/testIds";
 
 // Disabling no-useless-path-segments, because removing it makes the tests fail for reasons I can't understand
@@ -11,8 +15,6 @@ import testIds from "../../test/testIds";
 // eslint-disable-next-line import/no-useless-path-segments
 import FollowReveal from "./";
 
-import Direction from "../Direction";
-
 jest.mock("src/TurnReveal/index.jsx", () => {
   const TurnRevealModule = jest.requireActual("../TurnReveal/index.jsx");
   return {
@@ -20,6 +22,7 @@ jest.mock("src/TurnReveal/index.jsx", () => {
     default: props => (
       <>
         {props.direction}
+        {props.pose}
         <TurnRevealModule.default {...props} />
       </>
     )
@@ -40,11 +43,11 @@ Element.prototype.getBoundingClientRect = jest.fn(() => {
   };
 });
 
-const FollowRevealWrapper = ({ children }) => {
+const FollowRevealWrapper = props => {
   const perspective = 400;
   return (
     <div style={{ position: "relative", perspective: perspective + "px" }}>
-      <FollowReveal perspective={perspective}>{children}</FollowReveal>
+      <FollowReveal perspective={perspective} {...props} />
     </div>
   );
 };
@@ -69,6 +72,10 @@ describe("<FollowReveal>", () => {
       const eventCatcher = getByTestId(testIds.eventCatcher);
       fireEvent.mouseEnter(eventCatcher, { clientX: x, clientY: y });
       expect(container).toHaveTextContent(direction);
+      expect(container).toHaveTextContent(Pose.closed);
+      fireEvent.mouseLeave(eventCatcher, { clientX: x, clientY: y });
+      expect(container).toHaveTextContent(direction);
+      expect(container).toHaveTextContent(Pose.out);
     });
   });
 
