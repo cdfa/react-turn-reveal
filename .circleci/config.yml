@@ -14,17 +14,13 @@ workflows:
     jobs:
       - build
       - "build docs"
-#      - test:
+      - test
       - lint
 
 environment: &environment
   docker:
     - image: cdfa/cci-react-turn-reveal-primary:1.0.3
-  working_directory: &working_directory ~/react-turn-reveal
-
-attach_workspace: &attach_workspace
-  attach_workspace:
-    at: *working_directory
+  working_directory: ~/react-turn-reveal
 
 install_dependencies: &install_dependencies
   node/with-cache:
@@ -51,19 +47,21 @@ jobs:
       - *install_dependencies
       - run: npm run -s lint
 
-#  test:
-#    <<: *environment
-#    steps:
-#      - checkout
-#      - *attach_workspace
-#      - run: pnpm i --shamefully-flatten jest-junit
-#      - run:
-#          command: npm run test -- --ci --runInBand --reporters=default --reporters=jest-junit
-#          environment:
-#            JEST_JUNIT_OUTPUT: "reports/jest/js-test-results.xml"
-#            CI: true
-#      - store_test_results:
-#          path: reports
+  test:
+    <<: *environment
+    steps:
+      - checkout
+      - run: pnpm i jest-junit codecov
+      - run:
+          command: npm run test:coverage -- --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: "reports/jest/js-test-results.xml"
+            CI: true
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: coverage
+      - run: npx codecov
 
   "build docs":
     <<: *environment
