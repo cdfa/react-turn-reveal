@@ -24,4 +24,5 @@ afterEach(() => {
 });
 
 jest.mock("react-use");
-useSize.mockReturnValue([<div />, { width: 0, height: 0 }]);
+const mockSize = { width: 0, height: 0 };
+useSize.mockImplementation(Sized => [<Sized {...mockSize} />, mockSize]);
