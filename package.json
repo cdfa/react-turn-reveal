@@ -25,14 +25,13 @@
     "deploy": "docz build && gh-pages -d .docz/dist --message \"[skip ci] Updates\"",
     "format": "eslint --fix \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json,mdx}\"",
     "format:docker": "dockerfile-utils format .circleci/images/primary/Dockerfile",
-    "lint": "npm-run-all --aggregate-output -p lint:*",
+    "lint": "npm-run-all lint:*",
+    "lint-meta:eslint": "npm-run-all lint:js lint:mdx:eslint",
     "lint:js": "eslint --format friendly --max-warnings=0 \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json}\"",
     "lint:md": "markdownlint \"{*,{src,docs}{/*,/**/*}}.md\"",
-    "lint:mdx": "npm-run-all lint:mdx:*",
     "lint:mdx:markdownlint": "markdownlint --config .markdownlint-mdxrc \"{*,{src,docs}{/*,/**/*}}.mdx\"",
     "lint:mdx:eslint": "eslint --format friendly --max-warnings=0 \"{*,{src,docs}{/*,/**/*}}.mdx\"",
-    "lint:package-json": "npmPkgJsonLint -c .npm-package-json-lintrc.json package.json",
-    "lint:eslint": "npm-run-all lint:js lint:mdx:eslint"
+    "lint:package-json": "npmPkgJsonLint -c .npm-package-json-lintrc.json package.json"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
