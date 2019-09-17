@@ -5,7 +5,9 @@ import Pose from "src/Pose";
 
 import { itRendersChildren } from "test/utils";
 
-import TurnReveal from ".";
+// Removing the "/" also seems to break test coverage, or at least in Webstorm
+// eslint-disable-next-line import/no-useless-path-segments
+import TurnReveal from "./";
 
 // Might be useful in the future with more tests
 // const TurnRevealWrapper = ({ pose = Pose.closed, children }) => {
