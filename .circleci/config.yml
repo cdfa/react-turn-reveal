@@ -6,7 +6,6 @@ version: 2.1
 
 orbs:
   node: circleci/node@1.1.4
-  codecov: codecov/codecov@1.0.2
 
 workflows:
   version: 2
@@ -21,11 +20,7 @@ workflows:
 environment: &environment
   docker:
     - image: cdfa/cci-react-turn-reveal-primary:1.0.3
-  working_directory: &working_directory ~/react-turn-reveal
-
-attach_workspace: &attach_workspace
-  attach_workspace:
-    at: *working_directory
+  working_directory: ~/react-turn-reveal
 
 install_dependencies: &install_dependencies
   node/with-cache:
@@ -66,6 +61,7 @@ jobs:
           path: reports
       - store_artifacts:
           path: coverage
+      - run: npx codecov
 
   "build docs":
     <<: *environment
