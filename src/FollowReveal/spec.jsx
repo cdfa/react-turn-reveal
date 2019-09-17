@@ -3,6 +3,9 @@ import { render, fireEvent } from "@testing-library/react";
 
 import { itRendersChildren } from "test/utils";
 
+// Disabling no-useless-path-segments, because removing it makes the tests fail for reasons I can't understand
+// I also can't reproduce the warning locally for similarly incomprehensible reasons
+// eslint-disable-next-line import/no-useless-path-segments
 import FollowReveal from "./";
 
 import Direction from "../Direction";

@@ -5,7 +5,7 @@ import Pose from "src/Pose";
 
 import { itRendersChildren } from "test/utils";
 
-import TurnReveal from "./";
+import TurnReveal from ".";
 
 // Might be useful in the future with more tests
 // const TurnRevealWrapper = ({ pose = Pose.closed, children }) => {
