@@ -6,6 +6,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@1.1.4
+  codecov: codecov/codecov@1.0.2
 
 workflows:
   version: 2
@@ -14,7 +15,7 @@ workflows:
     jobs:
       - build
       - "build docs"
-#      - test:
+      - test
       - lint
 
 environment: &environment
@@ -51,19 +52,20 @@ jobs:
       - *install_dependencies
       - run: npm run -s lint
 
-#  test:
-#    <<: *environment
-#    steps:
-#      - checkout
-#      - *attach_workspace
-#      - run: pnpm i --shamefully-flatten jest-junit
-#      - run:
-#          command: npm run test -- --ci --runInBand --reporters=default --reporters=jest-junit
-#          environment:
-#            JEST_JUNIT_OUTPUT: "reports/jest/js-test-results.xml"
-#            CI: true
-#      - store_test_results:
-#          path: reports
+  test:
+    <<: *environment
+    steps:
+      - checkout
+      - run: pnpm i jest-junit
+      - run:
+          command: npm run test -- --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT: "reports/jest/js-test-results.xml"
+            CI: true
+      - store_test_results:
+          path: reports
+      - codecov/upload:
+          file: "reports/jest/js-test-results.xml"
 
   "build docs":
     <<: *environment
