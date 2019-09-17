@@ -8,6 +8,8 @@ import { useSize } from "react-use";
 import Pose from "src/Pose";
 import Direction from "src/Direction";
 
+import testIds from "../../test/testIds";
+
 // noinspection JSUnusedGlobalSymbols
 const TurnReveal = ({ pose, direction, perspective, className, children }) => {
   const [sized, { width, height }] = useSize(() => <Sized />);
@@ -29,6 +31,7 @@ const TurnReveal = ({ pose, direction, perspective, className, children }) => {
         hideAngles={hideAngles}
         className={className}
         style={style}
+        data-testid={testIds.animated}
       >
         {children}
       </Animated>

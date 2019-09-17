@@ -5,6 +5,8 @@ import TurnReveal from "src/TurnReveal";
 import Pose from "src/Pose";
 import Direction from "src/Direction";
 
+import testIds from "../../test/testIds";
+
 // noinspection JSUnusedGlobalSymbols
 export default class FollowReveal extends React.Component {
   static propTypes = {
@@ -56,7 +58,7 @@ export default class FollowReveal extends React.Component {
           onMouseLeave={e => this.followMouse(e, Pose.out)}
           ref={this.revealRef}
           style={style}
-          data-testid="event-catcher"
+          data-testid={testIds.eventCatcher}
         />
       </>
     );

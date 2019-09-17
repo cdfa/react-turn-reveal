@@ -3,6 +3,8 @@ import { render, fireEvent } from "@testing-library/react";
 
 import { itRendersChildren } from "test/utils";
 
+import testIds from "../../test/testIds";
+
 // Disabling no-useless-path-segments, because removing it makes the tests fail for reasons I can't understand
 // The warning also only seems to appear on the CI for similarly incomprehensible reasons
 // Removing the "/" also seems to break test coverage, or at least in Webstorm
@@ -64,9 +66,18 @@ describe("<FollowReveal>", () => {
           <div />
         </FollowRevealWrapper>
       );
-      const eventCatcher = getByTestId("event-catcher");
+      const eventCatcher = getByTestId(testIds.eventCatcher);
       fireEvent.mouseEnter(eventCatcher, { clientX: x, clientY: y });
       expect(container).toHaveTextContent(direction);
     });
+  });
+
+  // Could probably be removed when https://github.com/bitttttten/jest-transformer-mdx/issues/1 is resolved
+  it("it renders with a css class", () => {
+    const className = "test";
+    const { getByTestId } = render(
+      <FollowRevealWrapper className={className}>Test</FollowRevealWrapper>
+    );
+    expect(getByTestId(testIds.animated)).toHaveClass(className);
   });
 });
