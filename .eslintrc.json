@@ -98,7 +98,7 @@
     },
     {
       "files": "*.mdx",
-      "extends": ["plugin:@rxts/mdx/recommended", "plugin:@rxts/mdx/overrides"],
+      "extends": ["plugin:mdx/recommended", "plugin:mdx/overrides"],
       "rules": {
         "no-multi-str": "off"
       }
