@@ -1,0 +1,12 @@
+{
+  "plugins": [
+    "remark-preset-lint-recommended",
+    "remark-preset-lint-consistent",
+    "remark-preset-lint-markdown-style-guide",
+    "preset-prettier",
+    "remark-lint-match-punctuation",
+    "remark-lint-no-empty-sections",
+    "remark-lint-no-long-code",
+    "remark-lint-no-url-trailing-slash"
+  ]
+}
