@@ -4,6 +4,7 @@ const path = "{*,{src,docs}{/*,/**/*}}";
 module.exports = {
   [`${path}.{js,jsx,json,mdx}`]: [
     "eslint --fix --format friendly --max-warnings=0",
+    () => "npm run build",
     () => "jest -o",
     "git add"
   ],
