@@ -27,7 +27,8 @@
     "format:docker": "dockerfile-utils format .circleci/images/primary/Dockerfile",
     "lint": "npm-run-all lint:*",
     "lint:eslint": "eslint --format friendly --max-warnings=0 \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
-    "lint:package-json": "npmPkgJsonLint -c .npm-package-json-lintrc.json package.json"
+    "lint:package-json": "npmPkgJsonLint -c .npm-package-json-lintrc.json package.json",
+    "lint:docker": "dockerfile-utils lint .circleci/images/primary/Dockerfile"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
