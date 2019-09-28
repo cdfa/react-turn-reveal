@@ -19,7 +19,7 @@ workflows:
 
 environment: &environment
   docker:
-    - image: cdfa/cci-react-turn-reveal-primary:1.0.3
+    - image: cdfa/cci-react-turn-reveal-primary:1.0.4
   working_directory: ~/react-turn-reveal
 
 install_dependencies: &install_dependencies

@@ -14,14 +14,15 @@ module.exports = {
   restoreMocks: true,
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: ["src", "docs"],
+  roots: ["src", "tests"],
 
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect",
-    "<rootDir>/test/setup.jsx"
+    "<rootDir>/testUtils/setup.jsx"
   ],
 
   transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest"
+    "^.+\\.[t|j]sx?$": "babel-jest",
+    "^.+\\.mdx?$": "jest-transformer-mdx"
   }
 };
