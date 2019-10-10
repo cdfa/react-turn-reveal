@@ -2,7 +2,12 @@ module.exports = {
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
 
-  coveragePathIgnorePatterns: ["/node_modules/", "/coverage/", "/dist/"],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "/coverage/",
+    "/dist/",
+    "/docs/"
+  ],
 
   // Make calling deprecated APIs throw helpful error messages
   errorOnDeprecated: false,
