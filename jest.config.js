@@ -2,7 +2,12 @@ module.exports = {
   // The directory where Jest should output its coverage files
   coverageDirectory: "coverage",
 
-  coveragePathIgnorePatterns: ["/node_modules/", "/coverage/", "/dist/"],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "/coverage/",
+    "/dist/",
+    "/docs/"
+  ],
 
   // Make calling deprecated APIs throw helpful error messages
   errorOnDeprecated: false,
@@ -14,14 +19,15 @@ module.exports = {
   restoreMocks: true,
 
   // A list of paths to directories that Jest should use to search for files in
-  roots: ["src", "docs"],
+  roots: ["src", "tests"],
 
   setupFilesAfterEnv: [
     "@testing-library/jest-dom/extend-expect",
-    "<rootDir>/test/setup.jsx"
+    "<rootDir>/testUtils/setup.jsx"
   ],
 
   transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest"
+    "^.+\\.[t|j]sx?$": "babel-jest",
+    "^.+\\.mdx?$": "jest-transformer-mdx"
   }
 };

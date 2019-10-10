@@ -8,7 +8,7 @@ import { useSize } from "react-use";
 import Pose from "src/Pose";
 import Direction from "src/Direction";
 
-import testIds from "../../test/testIds";
+import testIds from "../../testUtils/testIds";
 
 // noinspection JSUnusedGlobalSymbols
 const TurnReveal = ({ pose, direction, perspective, className, children }) => {

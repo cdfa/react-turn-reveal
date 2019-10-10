@@ -3,7 +3,7 @@ import React from "react";
 import Direction from "src/Direction";
 import Pose from "src/Pose";
 
-import { itRendersChildren } from "test/utils";
+import { itRendersChildren } from "testUtils/itRendersChildren";
 
 // Removing the "/" also seems to break test coverage, or at least in Webstorm
 // eslint-disable-next-line import/no-useless-path-segments

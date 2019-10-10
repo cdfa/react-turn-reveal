@@ -1,13 +1,13 @@
 import React from "react";
 import { render, fireEvent } from "@testing-library/react";
 
-import { itRendersChildren } from "test/utils";
+import { itRendersChildren } from "testUtils/itRendersChildren";
 
 import Pose from "src/Pose";
 
 import Direction from "src/Direction";
 
-import testIds from "../../test/testIds";
+import testIds from "../../testUtils/testIds";
 
 // Disabling no-useless-path-segments, because removing it makes the tests fail for reasons I can't understand
 // The warning also only seems to appear on the CI for similarly incomprehensible reasons

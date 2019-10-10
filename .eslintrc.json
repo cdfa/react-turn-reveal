@@ -60,7 +60,6 @@
     // "import/no-relative-parent-imports": "warn", // See https://github.com/benmosher/eslint-plugin-import/issues/1299
     "import/no-extraneous-dependencies": "error",
     "import/no-mutable-exports": "error",
-    "import/no-nodejs-modules": "error",
     "import/first": "warn",
     "import/extensions": "error",
     "import/prefer-default-export": "warn",
@@ -113,6 +112,12 @@
       "extends": ["plugin:mdx/recommended", "plugin:mdx/overrides"],
       "rules": {
         "no-multi-str": "off"
+      }
+    },
+    {
+      "files": "src/**",
+      "rules": {
+        "import/no-nodejs-modules": "error"
       }
     }
   ]
