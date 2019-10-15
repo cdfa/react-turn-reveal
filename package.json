@@ -27,7 +27,7 @@
     "format:docker": "dockerfile-utils format .circleci/images/primary/Dockerfile",
     "lint": "npm-run-all lint:*",
     "lint:eslint": "eslint --format friendly --max-warnings=0 \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
-    "lint:package-json": "npmPkgJsonLint -c .npm-package-json-lintrc.json package.json",
+    "lint:package-json": "npmPkgJsonLint ./",
     "lint:docker": "dockerfile-utils lint .circleci/images/primary/Dockerfile"
   },
   "dependencies": {
@@ -89,7 +89,7 @@
     "jest": "^24.8.0",
     "jest-transformer-mdx": "^2.1.0",
     "lint-staged": "^9.2.0",
-    "npm-package-json-lint": "^3.7.0",
+    "npm-package-json-lint": "^4.0.0",
     "npm-package-json-lint-config-default": "^2.0.0",
     "npm-run-all": "^4.1.5",
     "object-transpose": "^2.0.1",
