@@ -11,7 +11,14 @@ import Direction from "src/Direction";
 import testIds from "../../testUtils/testIds";
 
 // noinspection JSUnusedGlobalSymbols
-const TurnReveal = ({ pose, direction, perspective, className, children }) => {
+const TurnReveal = ({
+  pose,
+  direction,
+  animationString = "300ms ease 0ms 1 forwards",
+  perspective,
+  className,
+  children
+}) => {
   const [sized, { width, height }] = useSize(() => <Sized />);
 
   const hideAngles = {
@@ -28,6 +35,7 @@ const TurnReveal = ({ pose, direction, perspective, className, children }) => {
       <Animated
         pose={pose}
         direction={direction}
+        animationString={animationString}
         hideAngles={hideAngles}
         className={className}
         style={style}
@@ -47,6 +55,7 @@ TurnReveal.propTypes = {
   pose: PropTypes.oneOf(Object.keys(Pose)).isRequired,
   /** The direction in which to pose. Options are defined in src/Direction. */
   direction: PropTypes.oneOf(Object.keys(Direction)).isRequired,
+  animationString: PropTypes.string,
   /** The perspective distance in number of pixels. */
   perspective: PropTypes.number.isRequired,
   /** A class name to give give the animated element and the placeholder element used as reference of the dimensions of the animated element.
@@ -86,7 +95,7 @@ const animationProperties = props => {
 
   return css`
     transform-origin: ${directionTransform.x} ${directionTransform.y};
-    animation: ${turnAnimation(props)} 300ms ease 0ms 1 forwards;
+    animation: ${turnAnimation(props)} ${props.animationString};
   `;
 };
 
