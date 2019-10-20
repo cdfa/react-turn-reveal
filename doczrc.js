@@ -7,5 +7,7 @@ export default {
   themeConfig: {
     mode: "dark"
   },
-  menu: ["README", "TurnReveal", "FollowReveal"]
+  menu: ["README", "TurnReveal", "FollowReveal"],
+  filterComponents: files =>
+    files.filter(filepath => /src\/.*\/*\.(js|jsx)$/.test(filepath))
 };
