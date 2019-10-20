@@ -55,9 +55,10 @@ TurnReveal.propTypes = {
   pose: PropTypes.oneOf(Object.keys(Pose)).isRequired,
   /** The direction in which to pose. Options are defined in src/Direction. */
   direction: PropTypes.oneOf(Object.keys(Direction)).isRequired,
-  animationString: PropTypes.string,
   /** The perspective distance in number of pixels. */
   perspective: PropTypes.number.isRequired,
+  /** A string specifying the CSS properties of the animation. */
+  animationString: PropTypes.string,
   /** A class name to give give the animated element and the placeholder element used as reference of the dimensions of the animated element.
    * 	See the combining example below. */
   className: PropTypes.string,

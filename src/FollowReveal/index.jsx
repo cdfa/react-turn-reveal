@@ -16,7 +16,13 @@ export default class FollowReveal extends React.Component {
      * 	See the combining example in the `TurnReveal` docs. */
     className: PropTypes.string,
     /** The animated element. */
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    /** A string specifying the CSS properties of the animation. */
+    animationString: PropTypes.string
+  };
+
+  static defaultProps = {
+    animationString: "300ms ease 0ms 1 forwards"
   };
 
   state = {
@@ -37,7 +43,7 @@ export default class FollowReveal extends React.Component {
   render() {
     const {
       state: { pose, direction },
-      props: { perspective, className, children }
+      props: { perspective, className, children, animationString }
     } = this;
 
     let style = { position: "absolute" };
@@ -50,6 +56,7 @@ export default class FollowReveal extends React.Component {
           direction={direction}
           perspective={perspective}
           className={className}
+          animationString={animationString}
         >
           {children}
         </TurnReveal>
