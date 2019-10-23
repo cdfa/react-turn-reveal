@@ -1,0 +1,6 @@
+[build]
+  command = "npm run netlify-build"
+  publish = ".docz/dist"
+
+[build.environment]
+    NPM_FLAGS="--prefix=/"
