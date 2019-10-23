@@ -22,6 +22,7 @@
     "test:coverage": "npm run test -- --coverage",
     "build": "rollup -c",
     "dev": "docz dev",
+    "netlify-build": "npx pnpm install --store=node_modules/.pnpm-store && docz build",
     "deploy": "docz build && gh-pages -d .docz/dist --message \"[skip ci] Updates\"",
     "format": "eslint --fix \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
     "format:docker": "dockerfile-utils format .circleci/images/primary/Dockerfile",
