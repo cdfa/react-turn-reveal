@@ -22,29 +22,19 @@ environment: &environment
     - image: cdfa/cci-react-turn-reveal-primary:1.0.5
   working_directory: ~/react-turn-reveal
 
-install_dependencies: &install_dependencies
-  node/with-cache:
-    dir: ~/.pnpm-store
-    cache-version: v2
-    steps:
-      - node/with-cache:
-          cache-version: v3
-          steps:
-            - run: pnpm i
-
 jobs:
   build:
     <<: *environment
     steps:
       - checkout
-      - *install_dependencies
+      - install_dependencies
       - run: npm run -s build
 
   lint:
     <<: *environment
     steps:
       - checkout
-      - *install_dependencies
+      - install_dependencies
       - run: npm run -s lint
 
   test:
@@ -67,6 +57,17 @@ jobs:
     <<: *environment
     steps:
       - checkout
-      - *install_dependencies
+      - install_dependencies
       - run: npx docz build
 
+commands:
+  install_dependencies:
+    steps:
+      - node/with-cache:
+          dir: ~/.pnpm-store
+          cache-version: v2
+          steps:
+            - node/with-cache:
+                cache-version: v3
+                steps:
+                  - run: pnpm i
