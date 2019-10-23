@@ -1,5 +1,3 @@
-// Adapted from https://codepen.io/noeldelgado/pen/pGwFx
-
 import React from "react";
 import styled, { css, keyframes } from "styled-components";
 import * as PropTypes from "prop-types";
