@@ -7,5 +7,6 @@ module.exports = {
   ],
   ".circleci/config.yml":
     'cross-env-shell test "a$CI" = a1 || circleci config validate',
-  ".circleci/images/primary/Dockerfile": "dockerfile-utils lint"
+  ".circleci/images/primary/Dockerfile": "dockerfile-utils lint",
+  "netlify.toml": "toml-checker"
 };
