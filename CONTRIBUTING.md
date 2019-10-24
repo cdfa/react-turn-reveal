@@ -1,13 +1,30 @@
 # Contributing
 
-Due to [`docz` and `react-script` using different versions of `webpack`
-at the moment](https://github.com/pedronauck/docz/issues/704) you have
-to install dependencies with `pnpm`.
-Since (some dependency of) `docz` seems to use dynamic module loading we
-also have to use the `--shamefully-flatten` flag.
+## Developing in the docs
 
-So install dependencies with:
+This project uses [docz](https://www.docz.site) for documentation generation, but this is also where you can
+try out the components in some pre-made environments while developing.
 
-```shell
-pnpm i --shamefully-flatten
-```
+## PNPM
+
+This project was developed using [pnpm](https://pnpm.js.org).
+There have been cases in the past where `npm` wouldn't even manage to install
+all dependencies correctly.
+If you run into any dependency related issues, using `pnpm` is the first thing you should try.
+
+## Git workflow
+
+If you're adding a feature or making any other kind of improvement, name your branch `feature/<your-feature>`.
+
+If you're fixing something, name you're branch `fix/<the-thing-youre-going-to-fix>`.
+
+If merge conflicts are detected on your PR, rebase.
+
+If you derped and need to fix something from an older commit,
+I'd rather have you revise and force push then adding a tiny fixup commit. Keep the history clean :).
+
+## CircleCI config validation
+
+I went a little overboard on the development environment for this package,
+but the only thing that won't work out of the box is validation of the CircleCI config pre-commit.
+If you've edited it, you'll need [their CLI](https://circleci.com/docs/2.0/local-cli/) installed on your system.
