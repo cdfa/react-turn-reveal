@@ -63,6 +63,7 @@ devDependencies:
   prettier-config-standard: 1.0.1
   react: 16.11.0
   react-dom: 16.11.0_react@16.11.0
+  react-hot-loader: 4.12.15_react-dom@16.11.0+react@16.11.0
   remark-cli: 7.0.0
   remark-lint: 6.0.5
   remark-lint-match-punctuation: 0.2.0
@@ -15255,6 +15256,7 @@ packages:
     hasBin: true
     name: toml-checker
     resolution:
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://codeload.github.com/cdfa/toml-checker/tar.gz/7d7544da33bfe56a7845aba665c8b0323649fd6a'
     version: 0.1.3
 specifiers:
@@ -15319,6 +15321,7 @@ specifiers:
   prop-types: ^15.7.2
   react: ^16.8.6
   react-dom: ^16.8.6
+  react-hot-loader: ^4.12.15
   react-use: ^10.5.0
   remark-cli: ^7.0.0
   remark-lint: ^6.0.5
