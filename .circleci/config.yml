@@ -63,6 +63,14 @@ jobs:
       - install_dependencies
       - run: npx docz build
 
+  publish:
+    executor: custom-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - run: npm run pre-publish
+      - run: npm run publish-all
+
 workflows:
   version: 2
   review:
@@ -71,3 +79,11 @@ workflows:
       - "build docs"
       - test
       - lint
+      - publish:
+          requires:
+            - build
+            - "build docs"
+            - test
+          filters:
+            branches:
+              only: master
