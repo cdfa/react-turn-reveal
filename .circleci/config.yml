@@ -9,7 +9,6 @@ orbs:
 
 workflows:
   version: 2
-
   review:
     jobs:
       - build
@@ -17,28 +16,29 @@ workflows:
       - test
       - lint
 
-environment: &environment
-  docker:
-    - image: cdfa/cci-react-turn-reveal-primary:1.0.5
-  working_directory: ~/react-turn-reveal
+executors:
+  custom-executor:
+    docker:
+      - image: cdfa/cci-react-turn-reveal-primary:1.0.5
+    working_directory: ~/react-turn-reveal
 
 jobs:
   build:
-    <<: *environment
+    executor: custom-executor
     steps:
       - checkout
       - install_dependencies
       - run: npm run -s build
 
   lint:
-    <<: *environment
+    executor: custom-executor
     steps:
       - checkout
       - install_dependencies
       - run: npm run -s lint
 
   test:
-    <<: *environment
+    executor: custom-executor
     steps:
       - checkout
       - run: pnpm i jest-junit codecov
@@ -54,7 +54,7 @@ jobs:
       - run: npx codecov
 
   "build docs":
-    <<: *environment
+    executor: custom-executor
     steps:
       - checkout
       - install_dependencies
