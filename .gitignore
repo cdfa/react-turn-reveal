@@ -1,5 +1,3 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
 # Docz
 .docz/
 
@@ -7,9 +5,7 @@
 node_modules
 
 # builds
-build
 dist
-.rpt2_cache
 
 # misc
 .DS_Store
@@ -23,3 +19,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 coverage/
+*.tgz

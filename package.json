@@ -12,7 +12,8 @@
     "defaults"
   ],
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "engines": {
     "node": "^12",
