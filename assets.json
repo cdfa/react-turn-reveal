@@ -1,13 +1,13 @@
 {
   "vendors.js": "/react-turn-reveal/static/js/vendors.bfd47017.js",
-  "vendors.js.map": "/react-turn-reveal/static/js/vendors.f48e777dc7657be408d4.js.map",
-  "app.js": "/react-turn-reveal/static/js/app.f48e777dc7657be408d4.js",
-  "app.js.map": "/react-turn-reveal/static/js/app.f48e777dc7657be408d4.js.map",
-  "docs-index.js": "/react-turn-reveal/static/js/docs-index.5ccaff3a.js",
-  "docs-index.js.map": "/react-turn-reveal/static/js/docs-index.f48e777dc7657be408d4.js.map",
+  "vendors.js.map": "/react-turn-reveal/static/js/vendors.418f4b5f7eafd7678651.js.map",
+  "app.js": "/react-turn-reveal/static/js/app.418f4b5f7eafd7678651.js",
+  "app.js.map": "/react-turn-reveal/static/js/app.418f4b5f7eafd7678651.js.map",
+  "docs-index.js": "/react-turn-reveal/static/js/docs-index.7e963281.js",
+  "docs-index.js.map": "/react-turn-reveal/static/js/docs-index.418f4b5f7eafd7678651.js.map",
   "src-follow-reveal-docs-index.js": "/react-turn-reveal/static/js/src-follow-reveal-docs-index.f95cc51b.js",
-  "src-follow-reveal-docs-index.js.map": "/react-turn-reveal/static/js/src-follow-reveal-docs-index.f48e777dc7657be408d4.js.map",
-  "src-turn-reveal-docs-index.js": "/react-turn-reveal/static/js/src-turn-reveal-docs-index.e2d8101a.js",
-  "src-turn-reveal-docs-index.js.map": "/react-turn-reveal/static/js/src-turn-reveal-docs-index.f48e777dc7657be408d4.js.map",
+  "src-follow-reveal-docs-index.js.map": "/react-turn-reveal/static/js/src-follow-reveal-docs-index.418f4b5f7eafd7678651.js.map",
+  "src-turn-reveal-docs-index.js": "/react-turn-reveal/static/js/src-turn-reveal-docs-index.078a6d34.js",
+  "src-turn-reveal-docs-index.js.map": "/react-turn-reveal/static/js/src-turn-reveal-docs-index.418f4b5f7eafd7678651.js.map",
   "index.html": "/react-turn-reveal/index.html"
 }
