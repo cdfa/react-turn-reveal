@@ -28,3 +28,23 @@ I'd rather have you revise and force push then adding a tiny fixup commit. Keep 
 I went a little overboard on the development environment for this package,
 but the only thing that won't work out of the box is validation of the CircleCI config pre-commit.
 If you've edited it, you'll need [their CLI](https://circleci.com/docs/2.0/local-cli/) installed on your system.
+
+## Releasing
+
+### Initial setup
+
+1. `npm login`
+2. Create a `.npmrc` for publishing to GitHub and enter your token:
+   //npm.pkg.github.com/:\_authToken=<TOKEN>
+   registry=<https://npm.pkg.github.com/cdfa>
+3. Encrypt it with `gpg`: `gpg -se .npmrc`.
+4. Now you can remove the file `rm .npmrc`. It will be decrypted again when publishing.
+
+### Release workflow
+
+1. `git flow release start <version>`
+2. `npm version <version>`
+3. Update Changelog
+4. `npm run publish-all`
+5. `git flow release finish`
+6. `git push origin --tags`
