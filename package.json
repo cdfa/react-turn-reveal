@@ -1,5 +1,5 @@
 {
-  "name": "react-turn-reveal",
+  "name": "@cdfa/react-turn-reveal",
   "version": "1.0.0",
   "description": "A 3D reveal animation library for React.",
   "author": "cdfa",
@@ -31,7 +31,8 @@
     "pre-publish:src": "npm run build",
     "publish-all": "npm-run-all publish:*",
     "publish:docs": "gh-pages -d .docz/dist --message \"v$npm_package_version [skip ci]\"",
-    "publish:npm": "npm publish",
+    "publish:npm": "npm publish --access public",
+    "publish:github": "gpg .npmrc.gpg && npm publish && rm .npmrc",
     "format": "eslint --fix \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
     "format:docker": "dockerfile-utils format .circleci/images/primary/Dockerfile",
     "lint": "npm-run-all lint:*",

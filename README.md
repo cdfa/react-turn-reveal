@@ -1,6 +1,6 @@
 # react-turn-reveal
 
-[![NPM](https://img.shields.io/npm/v/react-turn-reveal.svg)](https://www.npmjs.com/package/react-turn-reveal)
+[![npm (scoped)](https://img.shields.io/npm/v/@cdfa/react-turn-reveal)](https://www.npmjs.com/package/@cdfa/react-turn-reveal)
 [![CircleCI](https://img.shields.io/circleci/build/github/cdfa/react-turn-reveal)](https://circleci.com/gh/cdfa/react-turn-reveal)
 [![CodeCov](https://img.shields.io/codecov/c/github/cdfa/react-turn-reveal)](https://codecov.io/gh/cdfa/react-turn-reveal)
 [![LGTM](https://img.shields.io/lgtm/grade/javascript/github/cdfa/react-turn-reveal)](https://lgtm.com/projects/g/cdfa/react-turn-reveal/alerts/)
