@@ -1,0 +1,124 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "react-app",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:eslint-comments/recommended",
+    "plugin:array-func/all",
+    "plugin:import/recommended",
+    "plugin:import/react",
+    "plugin:promise/recommended",
+    "prettier-standard/prettier-file",
+    "prettier/react"
+  ],
+  "plugins": ["prettier", "json", "jest", "no-loops", "promise"],
+  "settings": {
+    "import/resolver": "babel-module",
+    "import/parsers": {
+      "eslint-mdx": [".mdx"]
+    }
+  },
+  "rules": {
+    "prettier/prettier": "warn",
+    "complexity": "warn",
+    "dot-notation": "warn",
+    "no-alert": "error",
+    "no-console": "warn",
+    "no-implicit-coercion": "error",
+    "no-nested-ternary": "warn",
+    "max-nested-callbacks": ["warn", 3],
+    "block-scoped-var": "warn",
+    "class-methods-use-this": "warn",
+    "no-useless-concat": "warn",
+    "linebreak-style": ["error", "unix"],
+    "no-useless-return": "warn",
+    "yoda": "warn",
+    "no-shadow": "warn",
+    "max-statements-per-line": "warn",
+    "no-lonely-if": "warn",
+    "object-shorthand": "warn",
+    "prefer-rest-params": "error",
+    "lines-between-class-members": "warn",
+    // "react/destructuring-assignment": "warn", doesn't have an option to ignore single usage yet, see https://github.com/yannickcr/eslint-plugin-react/issues/1731
+    "react/static-property-placement": "warn",
+    "react/default-props-match-prop-types": "error",
+    "react/no-redundant-should-component-update": "error",
+    "react/no-this-in-sfc": "error",
+    "react/no-unused-prop-types": "warn",
+    "react/no-unused-state": "warn",
+    "react/prefer-read-only-props": "warn",
+    "react/self-closing-comp": "warn",
+    "react/sort-comp": "warn",
+    "react/style-prop-object": "error",
+    "react/void-dom-elements-no-children": "error",
+    "react/jsx-handler-names": "warn",
+    "react/jsx-pascal-case": "error",
+    "no-loops/no-loops": "warn",
+    "array-func/from-map": "off",
+    "import/no-useless-path-segments": "warn",
+    // "import/no-relative-parent-imports": "warn", // See https://github.com/benmosher/eslint-plugin-import/issues/1299
+    "import/no-extraneous-dependencies": "error",
+    "import/no-mutable-exports": "error",
+    "import/first": "warn",
+    "import/extensions": "error",
+    "import/prefer-default-export": "warn",
+    "import/order": [
+      "warn",
+      {
+        "newlines-between": "always-and-inside-groups",
+        "groups": ["external", ["internal", "sibling"]]
+      }
+    ],
+    // Don't enable yet, because https://github.com/tleunen/eslint-import-resolver-babel-module/issues/106
+    // "import/no-unused-modules": [
+    //   "warn",
+    //   {
+    //     "unusedExports": true,
+    //     "src": ["src/*", "docs/*"],
+    //     "ignoreExports": ["src/TurnReveal/index.jsx"]
+    //   }
+    // ]
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "promise/prefer-await-to-callbacks": "warn",
+    "no-unused-vars": "warn",
+    "spaced-comment": "warn"
+  },
+  "overrides": [
+    {
+      "files": "*spec.{js,jsx}",
+      "env": {
+        "jest/globals": true
+      },
+      "rules": {
+        "max-nested-callbacks": "off"
+      }
+    },
+    {
+      "files": "*.md",
+      "extends": "plugin:mdx/recommended",
+      "rules": {
+        "prettier/prettier": [
+          2,
+          {
+            "parser": "markdown" // required for `eslint-plugin-prettier`
+          }
+        ]
+      }
+    },
+    {
+      "files": "*.mdx",
+      "extends": ["plugin:mdx/recommended", "plugin:mdx/overrides"],
+      "rules": {
+        "no-multi-str": "off"
+      }
+    },
+    {
+      "files": "src/**",
+      "rules": {
+        "import/no-nodejs-modules": "error"
+      }
+    }
+  ]
+}

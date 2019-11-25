@@ -5,26 +5,69 @@
 version: 2.1
 
 orbs:
-  node: circleci/node@0.0.7
+  node: circleci/node@1.1.4
 
-workflows:
-  version: 2
+commands:
+  install_dependencies:
+    steps:
+      - node/with-cache:
+          dir: ~/.pnpm-store
+          cache-version: v2
+          steps:
+            - node/with-cache:
+                cache-version: v3
+                steps:
+                  - run: pnpm i
 
-  review:
-    jobs:
-      - build:
-          filters:
-            branches:
-              ignore: gh-pages
+executors:
+  custom-executor:
+    docker:
+      - image: cdfa/cci-react-turn-reveal-primary:1.0.5
+    working_directory: ~/react-turn-reveal
 
 jobs:
   build:
-    executor: node/default
-    working_directory: ~/react-turn-reveal
-
+    executor: custom-executor
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm i
-            - run: npm run build
+      - install_dependencies
+      - run: npm run -s build
+
+  lint:
+    executor: custom-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - run: npm run -s lint
+
+  test:
+    executor: custom-executor
+    steps:
+      - checkout
+      - run: pnpm i jest-junit codecov
+      - run:
+          command: npm run test:coverage -- --ci --runInBand --reporters=default --reporters=jest-junit
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: "reports/jest/js-test-results.xml"
+            CI: true
+      - store_test_results:
+          path: reports
+      - store_artifacts:
+          path: coverage
+      - run: npx codecov
+
+  "build docs":
+    executor: custom-executor
+    steps:
+      - checkout
+      - install_dependencies
+      - run: npx docz build
+
+workflows:
+  version: 2
+  review:
+    jobs:
+      - build
+      - "build docs"
+      - test
+      - lint

@@ -1,0 +1,138 @@
+---
+name: TurnReveal
+route: /turn-reveal
+---
+
+# TurnReveal
+
+A `<TurnReveal>` component is a component that can turn out of or turn into view.
+To use the component, place it in an element that has `position: relative` and make sure it's a direct child of the element on which you define the `perspective` property.
+
+import { Playground, Props } from "docz";
+import styled from "styled-components";
+
+import Direction from "src/Direction";
+import Pose from "src/Pose";
+import {
+  Front,
+  PlaceHolderImage,
+  CenteringFlexBox
+} from "docs/PlayGroundUtils";
+import ControlWrapper from "./ControlWrapper";
+
+import TurnReveal from "..";
+
+<Props of={TurnReveal} />
+
+## Basic Usage
+
+Most of the code for running the playground below is located in `docs/PlayGroundUtils.jsx` to keep the demo below as simple as possible. Open it in CodeSandBox to look around.
+
+<Playground>
+  {() => {
+    class TurnRevealWrapper extends React.Component {
+      // We can't use the class properties proposal yet (until 2.0 hopefully), because I can't get docz's `modifyBabelRc` to work
+      constructor(props) {
+        super(props);
+        this.state = {
+          pose: Pose.closed,
+          direction: Direction.right
+        };
+        this.updateReveal = this.updateReveal.bind(this);
+      }
+      updateReveal(direction) {
+        this.setState({
+          pose: this.state.pose === Pose.out ? Pose.closed : Pose.out,
+          direction
+        });
+      }
+      render() {
+        const perspective = 400;
+        return (
+          <ControlWrapper
+            pose={this.state.pose}
+            updateReveal={this.updateReveal}
+          >
+            <div
+              style={{ position: "relative", perspective: perspective + "px" }}
+            >
+              <TurnReveal
+                pose={this.state.pose}
+                direction={this.state.direction}
+                perspective={perspective}
+              >
+                <Front>More info</Front>
+              </TurnReveal>
+              <PlaceHolderImage />
+            </div>
+          </ControlWrapper>
+        );
+      }
+    }
+    return <TurnRevealWrapper />;
+  }}
+</Playground>
+
+## Multiple `TurnReveal`s combined
+
+<Playground>
+  {() => {
+    class TurnRevealWrapper extends React.Component {
+      // We can't use the class properties proposal yet (until 2.0 hopefully), because I can't get docz's `modifyBabelRc` to work
+      constructor(props) {
+        super(props);
+        this.state = {
+          pose: Pose.closed
+        };
+        this.handleClick = this.handleClick.bind(this);
+      }
+      handleClick() {
+        this.setState({
+          pose: this.state.pose === Pose.out ? Pose.closed : Pose.out
+        });
+      }
+      render() {
+        const perspective = 400;
+        return (
+          <CenteringFlexBox>
+            <button style={{ width: "fit-content" }} onClick={this.handleClick}>
+              {this.state.pose === Pose.closed ? "Closed" : "Out"}
+            </button>
+            <div style={{ height: "10px" }} />
+            <Container style={{ perspective: perspective + "px" }}>
+              <TurnReveal
+                pose={this.state.pose}
+                direction={Direction.left}
+                perspective={perspective}
+                className="half-width"
+              >
+                <Front>Left</Front>
+              </TurnReveal>
+              <TurnReveal
+                pose={this.state.pose}
+                direction={Direction.right}
+                perspective={perspective}
+                className="half-width right"
+              >
+                <Front>Right</Front>
+              </TurnReveal>
+              <PlaceHolderImage />
+            </Container>
+          </CenteringFlexBox>
+        );
+      }
+    }
+    // This is a little awkward, because MDX can't parse tagged template literals yet, see https://github.com/mdx-js/mdx/issues/195
+    const Container = styled.div([
+      "position: relative;\
+         .half-width{\
+            height: 100%;\
+            width: 50%;\
+        }\
+         .right{\
+            right: 0;\
+        }"
+    ]);
+    return <TurnRevealWrapper />;
+  }}
+</Playground>
