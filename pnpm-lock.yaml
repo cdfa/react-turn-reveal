@@ -15,7 +15,7 @@ devDependencies:
   '@testing-library/react': 9.3.0_react-dom@16.11.0+react@16.11.0
   '@types/jest': 24.0.19
   '@types/styled-components': 4.1.19
-  '@typescript-eslint/eslint-plugin': 1.13.0_c393b18d397f2ea8e3a3c721535cfc91
+  '@typescript-eslint/eslint-plugin': 2.20.0_c393b18d397f2ea8e3a3c721535cfc91
   '@typescript-eslint/parser': 2.5.0_eslint@6.5.1
   babel-eslint: 10.0.3_eslint@6.5.1
   babel-jest: 24.9.0_@babel+core@7.6.4
@@ -28,7 +28,7 @@ devDependencies:
   eslint: 6.5.1
   eslint-config-prettier: 6.4.0_eslint@6.5.1
   eslint-config-prettier-standard: 3.0.1_a305721924144c590749ba40d9f0f57d
-  eslint-config-react-app: 5.0.2_aaadd5b625429ffd83bddcc6a059837c
+  eslint-config-react-app: 5.0.2_692b58223344fd1bd6a9066f79e1733d
   eslint-config-standard: 13.0.1_c950cbaeccdfb3dd9a0135008eaf9573
   eslint-formatter-friendly: 7.0.0
   eslint-import-resolver-babel-module: 5.1.0_1353f2d405ce8e26b856bf657c655883
@@ -79,7 +79,7 @@ devDependencies:
   rollup-plugin-babel: 4.3.3_@babel+core@7.6.4+rollup@1.25.2
   rollup-plugin-commonjs: 10.1.0_rollup@1.25.2
   rollup-plugin-node-resolve: 5.2.0_rollup@1.25.2
-  rollup-plugin-peer-deps-external: 2.2.0_rollup@1.25.2
+  rollup-plugin-peer-deps-external: 2.2.2_rollup@1.25.2
   rollup-plugin-url: 2.2.4_rollup@1.25.2
   toml-checker: github.com/cdfa/toml-checker/7d7544da33bfe56a7845aba665c8b0323649fd6a
   typescript: 3.4.5
@@ -3112,24 +3112,28 @@ packages:
     dev: true
     resolution:
       integrity: sha512-K8/LfZq2duW33XW/tFwEAfnZlqIfVsoyRB3kfXdPXYhl0nfM8mmh7GS0jg7WrX2Dgq/0Ha/pR1PaR+BvmWwjiQ==
-  /@typescript-eslint/eslint-plugin/1.13.0_c393b18d397f2ea8e3a3c721535cfc91:
+  /@typescript-eslint/eslint-plugin/2.20.0_c393b18d397f2ea8e3a3c721535cfc91:
     dependencies:
-      '@typescript-eslint/experimental-utils': 1.13.0_eslint@6.5.1
+      '@typescript-eslint/experimental-utils': 2.20.0_eslint@6.5.1+typescript@3.4.5
       '@typescript-eslint/parser': 2.5.0_eslint@6.5.1
       eslint: 6.5.1
       eslint-utils: 1.4.3
       functional-red-black-tree: 1.0.1
-      regexpp: 2.0.1
+      regexpp: 3.0.0
       tsutils: 3.17.1_typescript@3.4.5
+      typescript: 3.4.5
     dev: true
     engines:
-      node: ^6.14.0 || ^8.10.0 || >=9.10.0
+      node: ^8.10.0 || ^10.13.0 || >=11.10.1
     peerDependencies:
-      '@typescript-eslint/parser': ^1.9.0
-      eslint: ^5.0.0
+      '@typescript-eslint/parser': ^2.0.0
+      eslint: ^5.0.0 || ^6.0.0
       typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     resolution:
-      integrity: sha512-WQHCozMnuNADiqMtsNzp96FNox5sOVpU8Xt4meaT4em8lOG1SrOv92/mUbEHQVh90sldKSfcOc/I0FOb/14G1g==
+      integrity: sha512-cimIdVDV3MakiGJqMXw51Xci6oEDEoPkvh8ggJe2IIzcc0fYqAxOXN6Vbeanahz6dLZq64W+40iUEc9g32FLDQ==
   /@typescript-eslint/experimental-utils/1.13.0_eslint@6.5.1:
     dependencies:
       '@types/json-schema': 7.0.3
@@ -3143,6 +3147,20 @@ packages:
       eslint: '*'
     resolution:
       integrity: sha512-zmpS6SyqG4ZF64ffaJ6uah6tWWWgZ8m+c54XXgwFtUv0jNz8aJAVx8chMCvnk7yl6xwn8d+d96+tWp7fXzTuDg==
+  /@typescript-eslint/experimental-utils/2.20.0_eslint@6.5.1+typescript@3.4.5:
+    dependencies:
+      '@types/json-schema': 7.0.3
+      '@typescript-eslint/typescript-estree': 2.20.0_typescript@3.4.5
+      eslint: 6.5.1
+      eslint-scope: 5.0.0
+    dev: true
+    engines:
+      node: ^8.10.0 || ^10.13.0 || >=11.10.1
+    peerDependencies:
+      eslint: '*'
+      typescript: '*'
+    resolution:
+      integrity: sha512-fEBy9xYrwG9hfBLFEwGW2lKwDRTmYzH3DwTmYbT+SMycmxAoPl0eGretnBFj/s+NfYBG63w/5c3lsvqqz5mYag==
   /@typescript-eslint/experimental-utils/2.5.0_eslint@6.5.1:
     dependencies:
       '@types/json-schema': 7.0.3
@@ -3179,6 +3197,26 @@ packages:
       node: '>=6.14.0'
     resolution:
       integrity: sha512-b5rCmd2e6DCC6tCTN9GSUAuxdYwCM/k/2wdjHGrIRGPSJotWMCe/dGpi66u42bhuh8q3QBzqM4TMA1GUUCJvdw==
+  /@typescript-eslint/typescript-estree/2.20.0_typescript@3.4.5:
+    dependencies:
+      debug: 4.1.1
+      eslint-visitor-keys: 1.1.0
+      glob: 7.1.6
+      is-glob: 4.0.1
+      lodash: 4.17.15
+      semver: 6.3.0
+      tsutils: 3.17.1_typescript@3.4.5
+      typescript: 3.4.5
+    dev: true
+    engines:
+      node: ^8.10.0 || ^10.13.0 || >=11.10.1
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    resolution:
+      integrity: sha512-WlFk8QtI8pPaE7JGQGxU7nGcnk1ccKAJkhbVookv94ZcAef3m6oCE/jEDL6dGte3JcD7reKrA0o55XhBRiVT3A==
   /@typescript-eslint/typescript-estree/2.5.0:
     dependencies:
       debug: 4.1.1
@@ -6011,9 +6049,9 @@ packages:
       eslint: '>=3.14.1'
     resolution:
       integrity: sha512-YrKucoFdc7SEko5Sxe4r6ixqXPDP1tunGw91POeZTTRKItf/AMFYt/YLEQtZMkR2LVpAVhcAcZgcWpm1oGPW7w==
-  /eslint-config-react-app/5.0.2_aaadd5b625429ffd83bddcc6a059837c:
+  /eslint-config-react-app/5.0.2_692b58223344fd1bd6a9066f79e1733d:
     dependencies:
-      '@typescript-eslint/eslint-plugin': 1.13.0_c393b18d397f2ea8e3a3c721535cfc91
+      '@typescript-eslint/eslint-plugin': 2.20.0_c393b18d397f2ea8e3a3c721535cfc91
       '@typescript-eslint/parser': 2.5.0_eslint@6.5.1
       babel-eslint: 10.0.3_eslint@6.5.1
       confusing-browser-globals: 1.0.9
@@ -7243,6 +7281,17 @@ packages:
     dev: true
     resolution:
       integrity: sha512-J9dlskqUXK1OeTOYBEn5s8aMukWMwWfs+rPTn/jn50Ux4MNXVhubL1wu/j2t+H4NVI+cXEcCaYellqaPVGXNqQ==
+  /glob/7.1.6:
+    dependencies:
+      fs.realpath: 1.0.0
+      inflight: 1.0.6
+      inherits: 2.0.4
+      minimatch: 3.0.4
+      once: 1.4.0
+      path-is-absolute: 1.0.1
+    dev: true
+    resolution:
+      integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
   /global-modules/2.0.0:
     dependencies:
       global-prefix: 3.0.0
@@ -11697,6 +11746,12 @@ packages:
       node: '>=6.5.0'
     resolution:
       integrity: sha512-lv0M6+TkDVniA3aD1Eg0DVpfU/booSu7Eev3TDO/mZKHBfVjgCGTV4t4buppESEYDtkArYFOxTJWv6S5C+iaNw==
+  /regexpp/3.0.0:
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-Z+hNr7RAVWxznLPuA7DIh8UNX1j9CDrUQxskw9IrBE1Dxue2lyXT+shqEIeLUjrokxIP8CMy1WkjgG3rTsd5/g==
   /regexpu-core/4.6.0:
     dependencies:
       regenerate: 1.4.0
@@ -12774,14 +12829,14 @@ packages:
       rollup: '>=1.11.0'
     resolution:
       integrity: sha512-jUlyaDXts7TW2CqQ4GaO5VJ4PwwaV8VUGA7+km3n6k6xtOEacf61u0VXwN80phY/evMcaS+9eIeJ9MOyDxt5Zw==
-  /rollup-plugin-peer-deps-external/2.2.0_rollup@1.25.2:
+  /rollup-plugin-peer-deps-external/2.2.2_rollup@1.25.2:
     dependencies:
       rollup: 1.25.2
     dev: true
     peerDependencies:
-      rollup: ^0.x
+      rollup: '*'
     resolution:
-      integrity: sha512-BmJMHUWQcvjS2dQMwJ7dzvdbwpRChnq4AYk2sTU/4aySt9Kumk8y8W3HhTHss31wxzKb0AC/wsiX1AqDcOBIEA==
+      integrity: sha512-XcHH4UW9exRTAf73d8rk2dw2UgF//cWbilhRI4Ni/n+t0zA1eBtohKyJROn0fxa4/+WZ5R3onAyIDiwRQL+59A==
   /rollup-plugin-url/2.2.4_rollup@1.25.2:
     dependencies:
       mime: 2.4.4
@@ -13718,7 +13773,6 @@ packages:
       react: 16.11.0
       react-dom: 16.11.0_react@16.11.0
       react-is: 16.11.0
-      styled-components: 4.4.0_e4b4dd71152528f4d97c8ef5a2666498
       stylis: 3.5.4
       stylis-rule-sheet: 0.0.10_stylis@3.5.4
       supports-color: 5.5.0
@@ -14107,9 +14161,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+  /tslib/1.11.0:
+    dev: true
+    resolution:
+      integrity: sha512-BmndXUtiTn/VDDrJzQE7Mm22Ix3PxgLltW9bSNLoeCY31gnG2OPx0QqJnuc9oMIKioYrz487i6K9o4Pdn0j+Kg==
   /tsutils/3.17.1_typescript@3.4.5:
     dependencies:
-      tslib: 1.10.0
+      tslib: 1.11.0
       typescript: 3.4.5
     dev: true
     engines:
@@ -15272,7 +15330,7 @@ specifiers:
   '@testing-library/react': ^9.1.1
   '@types/jest': ^24.0.12
   '@types/styled-components': ^4.1.18
-  '@typescript-eslint/eslint-plugin': ^1.13.0
+  '@typescript-eslint/eslint-plugin': ^2.20.0
   '@typescript-eslint/parser': 2.x
   babel-eslint: 10.x
   babel-jest: ^24.8.0
@@ -15338,7 +15396,7 @@ specifiers:
   rollup-plugin-babel: ^4.3.2
   rollup-plugin-commonjs: ^10.0.0
   rollup-plugin-node-resolve: ^5.0.3
-  rollup-plugin-peer-deps-external: ^2.2.0
+  rollup-plugin-peer-deps-external: ^2.2.2
   rollup-plugin-url: ^2.2.2
   styled-components: ^4.3.1
   toml-checker: 'github:cdfa/toml-checker#7d7544da33bfe56a7845aba665c8b0323649fd6a'
