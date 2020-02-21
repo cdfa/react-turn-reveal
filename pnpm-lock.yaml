@@ -11,6 +11,9 @@ devDependencies:
   '@babel/preset-react': 7.6.3_@babel+core@7.6.4
   '@mdx-js/react': 1.5.1_react@16.11.0
   '@pnpm/merge-driver': 0.1.0
+  '@rollup/plugin-commonjs': 11.0.2_rollup@1.25.2
+  '@rollup/plugin-node-resolve': 7.1.1_rollup@1.25.2
+  '@rollup/plugin-url': 4.0.2_rollup@1.25.2
   '@testing-library/jest-dom': 4.1.2
   '@testing-library/react': 9.3.0_react-dom@16.11.0+react@16.11.0
   '@types/jest': 24.0.19
@@ -77,10 +80,7 @@ devDependencies:
   remark-preset-prettier: 0.2.2_prettier@1.18.2
   rollup: 1.25.2
   rollup-plugin-babel: 4.3.3_@babel+core@7.6.4+rollup@1.25.2
-  rollup-plugin-commonjs: 10.1.0_rollup@1.25.2
-  rollup-plugin-node-resolve: 5.2.0_rollup@1.25.2
   rollup-plugin-peer-deps-external: 2.2.2_rollup@1.25.2
-  rollup-plugin-url: 2.2.4_rollup@1.25.2
   toml-checker: github.com/cdfa/toml-checker/7d7544da33bfe56a7845aba665c8b0323649fd6a
   typescript: 3.4.5
 lockfileVersion: 5.1
@@ -2608,6 +2608,60 @@ packages:
       react-dom: 15.x || 16.x || 16.4.0-alpha.0911da3
     resolution:
       integrity: sha512-kTaX08X4g27tzIFQGRukaHmNbtMYDS3LEWIS8+l6OayGIw6Oyo1HIF/JzeuR2FoF9z6oV+x/wJSVSq4v8tcUGQ==
+  /@rollup/plugin-commonjs/11.0.2_rollup@1.25.2:
+    dependencies:
+      '@rollup/pluginutils': 3.0.8_rollup@1.25.2
+      estree-walker: 1.0.1
+      is-reference: 1.1.4
+      magic-string: 0.25.4
+      resolve: 1.15.1
+      rollup: 1.25.2
+    dev: true
+    engines:
+      node: '>= 8.0.0'
+    peerDependencies:
+      rollup: ^1.20.0
+    resolution:
+      integrity: sha512-MPYGZr0qdbV5zZj8/2AuomVpnRVXRU5XKXb3HVniwRoRCreGlf5kOE081isNWeiLIi6IYkwTX9zE0/c7V8g81g==
+  /@rollup/plugin-node-resolve/7.1.1_rollup@1.25.2:
+    dependencies:
+      '@rollup/pluginutils': 3.0.8_rollup@1.25.2
+      '@types/resolve': 0.0.8
+      builtin-modules: 3.1.0
+      is-module: 1.0.0
+      resolve: 1.15.1
+      rollup: 1.25.2
+    dev: true
+    engines:
+      node: '>= 8.0.0'
+    peerDependencies:
+      rollup: ^1.20.0
+    resolution:
+      integrity: sha512-14ddhD7TnemeHE97a4rLOhobfYvUVcaYuqTnL8Ti7Jxi9V9Jr5LY7Gko4HZ5k4h4vqQM0gBQt6tsp9xXW94WPA==
+  /@rollup/plugin-url/4.0.2_rollup@1.25.2:
+    dependencies:
+      '@rollup/pluginutils': 3.0.8_rollup@1.25.2
+      make-dir: 3.0.0
+      mime: 2.4.4
+      rollup: 1.25.2
+    dev: true
+    engines:
+      node: '>=8.0.0'
+    peerDependencies:
+      rollup: ^1.20.0
+    resolution:
+      integrity: sha512-jm0VbkSphTmfyCgbmkLpvz56Q6KYdLLQKOuMvfBEYDK5zUU7F13JQrv5D6xEU8DlDi/nOi6MSyGaloo9vfYZuQ==
+  /@rollup/pluginutils/3.0.8_rollup@1.25.2:
+    dependencies:
+      estree-walker: 1.0.1
+      rollup: 1.25.2
+    dev: true
+    engines:
+      node: '>= 8.0.0'
+    peerDependencies:
+      rollup: ^1.20.0
+    resolution:
+      integrity: sha512-rYGeAc4sxcZ+kPG/Tw4/fwJODC3IXHYDH4qusdN/b6aLw5LPUbzpecYbEJh4sVQGPFJxd2dBU4kc1H3oy9/bnw==
   /@samverschueren/stream-to-observable/0.3.0:
     dependencies:
       any-observable: 0.3.0
@@ -6480,6 +6534,10 @@ packages:
     dev: true
     resolution:
       integrity: sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==
+  /estree-walker/1.0.1:
+    dev: true
+    resolution:
+      integrity: sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==
   /esutils/2.0.3:
     engines:
       node: '>=0.10.0'
@@ -8740,6 +8798,9 @@ packages:
       node: '>=6'
     peerDependencies:
       jest-resolve: '*'
+    peerDependenciesMeta:
+      jest-resolve:
+        optional: true
     resolution:
       integrity: sha512-pgFw2tm54fzgYvc/OHrnysABEObZCUNFnhjoRjaVOCN8NYc032/gVjPaHD4Aq6ApkSieWtfKAFQtmDKAmhupnQ==
   /jest-regex-util/24.9.0:
@@ -9489,6 +9550,14 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==
+  /make-dir/3.0.0:
+    dependencies:
+      semver: 6.3.0
+    dev: true
+    engines:
+      node: '>=8'
+    resolution:
+      integrity: sha512-grNJDhb8b1Jm1qeqW5R/O63wUo4UXo2v2HMic6YT9i/HBlF93S8jkMgH7yugvY9ABDShH4VZMn8I+U8+fCNegw==
   /makeerror/1.0.11:
     dependencies:
       tmpl: 1.0.4
@@ -12722,6 +12791,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-B/dOmuoAik5bKcD6s6nXDCjzUKnaDvdkRyAk6rsmsKLipWj4797iothd7jmmUhWTfinVMU+wc56rYKsit2Qy4w==
+  /resolve/1.15.1:
+    dependencies:
+      path-parse: 1.0.6
+    dev: true
+    resolution:
+      integrity: sha512-84oo6ZTtoTUpjgNEr5SJyzQhzL72gaRodsSfyxC/AXRvwu0Yse9H8eF9IpGo7b8YetZhlI6v7ZQ6bKBFV/6S7w==
   /responselike/1.0.2:
     dependencies:
       lowercase-keys: 1.0.1
@@ -12803,32 +12878,6 @@ packages:
       rollup: '>=0.60.0 <2'
     resolution:
       integrity: sha512-tKzWOCmIJD/6aKNz0H1GMM+lW1q9KyFubbWzGiOG540zxPPifnEAHTZwjo0g991Y+DyOZcLqBgqOdqazYE5fkw==
-  /rollup-plugin-commonjs/10.1.0_rollup@1.25.2:
-    dependencies:
-      estree-walker: 0.6.1
-      is-reference: 1.1.4
-      magic-string: 0.25.4
-      resolve: 1.12.0
-      rollup: 1.25.2
-      rollup-pluginutils: 2.8.2
-    dev: true
-    peerDependencies:
-      rollup: '>=1.12.0'
-    resolution:
-      integrity: sha512-jlXbjZSQg8EIeAAvepNwhJj++qJWNJw1Cl0YnOqKtP5Djx+fFGkp3WRh+W0ASCaFG5w1jhmzDxgu3SJuVxPF4Q==
-  /rollup-plugin-node-resolve/5.2.0_rollup@1.25.2:
-    dependencies:
-      '@types/resolve': 0.0.8
-      builtin-modules: 3.1.0
-      is-module: 1.0.0
-      resolve: 1.12.0
-      rollup: 1.25.2
-      rollup-pluginutils: 2.8.2
-    dev: true
-    peerDependencies:
-      rollup: '>=1.11.0'
-    resolution:
-      integrity: sha512-jUlyaDXts7TW2CqQ4GaO5VJ4PwwaV8VUGA7+km3n6k6xtOEacf61u0VXwN80phY/evMcaS+9eIeJ9MOyDxt5Zw==
   /rollup-plugin-peer-deps-external/2.2.2_rollup@1.25.2:
     dependencies:
       rollup: 1.25.2
@@ -12837,17 +12886,6 @@ packages:
       rollup: '*'
     resolution:
       integrity: sha512-XcHH4UW9exRTAf73d8rk2dw2UgF//cWbilhRI4Ni/n+t0zA1eBtohKyJROn0fxa4/+WZ5R3onAyIDiwRQL+59A==
-  /rollup-plugin-url/2.2.4_rollup@1.25.2:
-    dependencies:
-      mime: 2.4.4
-      mkdirp: 0.5.1
-      rollup: 1.25.2
-      rollup-pluginutils: 2.8.2
-    dev: true
-    peerDependencies:
-      rollup: '>=0.60.0'
-    resolution:
-      integrity: sha512-vQjMgJj3tYrg6nKYO/Tvc8s1WTqbaLzHXia17358E6vO0Iq4Ih5WcWYRPopLMUx0x63/31+9ezApAL0HFd998w==
   /rollup-pluginutils/2.8.2:
     dependencies:
       estree-walker: 0.6.1
@@ -15326,6 +15364,9 @@ specifiers:
   '@babel/preset-react': ^7.0.0
   '@mdx-js/react': ^1.5.1
   '@pnpm/merge-driver': ^0.1.0
+  '@rollup/plugin-commonjs': ^11.0.2
+  '@rollup/plugin-node-resolve': ^7.1.1
+  '@rollup/plugin-url': ^4.0.2
   '@testing-library/jest-dom': ^4.0.0
   '@testing-library/react': ^9.1.1
   '@types/jest': ^24.0.12
@@ -15394,10 +15435,7 @@ specifiers:
   remark-preset-prettier: ^0.2.1
   rollup: ^1.15.6
   rollup-plugin-babel: ^4.3.2
-  rollup-plugin-commonjs: ^10.0.0
-  rollup-plugin-node-resolve: ^5.0.3
   rollup-plugin-peer-deps-external: ^2.2.2
-  rollup-plugin-url: ^2.2.2
   styled-components: ^4.3.1
   toml-checker: 'github:cdfa/toml-checker#7d7544da33bfe56a7845aba665c8b0323649fd6a'
   typescript: '>=3.2.1 <3.5.0'
