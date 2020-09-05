@@ -17,8 +17,7 @@
   ],
   "engines": {
     "node": "^12",
-    "npm": "^6",
-    "pnpm": "^4.0.0"
+    "pnpm": "^5.0.0"
   },
   "scripts": {
     "test": "jest",
@@ -33,13 +32,15 @@
     "publish:docs": "gh-pages -d .docz/dist --message \"v$npm_package_version [skip ci]\"",
     "publish:npm": "npm publish --access public",
     "publish:github": "gpg .npmrc.gpg && npm publish && rm .npmrc",
-    "format": "eslint --fix \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
+    "format": "eslint --fix \"{*,{src,docs,scripts}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
     "format:docker": "dockerfile-utils format .circleci/images/primary/Dockerfile",
+    "format:nix": "nixpkgs-fmt {**,.*/**}/*.nix",
     "lint": "npm-run-all lint:*",
-    "lint:eslint": "eslint --format friendly --max-warnings=0 \"{*,{src,docs}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
+    "lint:eslint": "eslint --format friendly --max-warnings=0 \"{*,{src,docs,scripts}{/*,/**/*}}.{js,jsx,json,md,mdx}\"",
     "lint:package-json": "npmPkgJsonLint ./",
     "lint:docker": "dockerfile-utils lint .circleci/images/primary/Dockerfile",
-    "lint:netlify": "toml-checker netlify.toml"
+    "lint:netlify": "toml-checker netlify.toml",
+    "lint:nix": "node scripts/nix-lint.js"
   },
   "dependencies": {
     "prop-types": "^15.7.2",
@@ -128,6 +129,7 @@
     "rollup": "^1.15.6",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-peer-deps-external": "^2.2.2",
+    "shelljs": "^0.8.4",
     "toml-checker": "github:cdfa/toml-checker#7d7544da33bfe56a7845aba665c8b0323649fd6a",
     "typescript": ">=3.2.1 <3.5.0"
   },

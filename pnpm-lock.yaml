@@ -19,7 +19,7 @@ devDependencies:
   '@types/jest': 24.0.19
   '@types/styled-components': 4.1.19
   '@typescript-eslint/eslint-plugin': 2.20.0_c393b18d397f2ea8e3a3c721535cfc91
-  '@typescript-eslint/parser': 2.5.0_eslint@6.5.1
+  '@typescript-eslint/parser': 2.5.0_eslint@6.5.1+typescript@3.4.5
   babel-eslint: 10.0.3_eslint@6.5.1
   babel-jest: 24.9.0_@babel+core@7.6.4
   babel-plugin-module-resolver: 3.2.0
@@ -81,6 +81,7 @@ devDependencies:
   rollup: 1.25.2
   rollup-plugin-babel: 4.3.3_@babel+core@7.6.4+rollup@1.25.2
   rollup-plugin-peer-deps-external: 2.2.2_rollup@1.25.2
+  shelljs: 0.8.4
   toml-checker: github.com/cdfa/toml-checker/7d7544da33bfe56a7845aba665c8b0323649fd6a
   typescript: 3.4.5
 lockfileVersion: 5.1
@@ -3169,7 +3170,7 @@ packages:
   /@typescript-eslint/eslint-plugin/2.20.0_c393b18d397f2ea8e3a3c721535cfc91:
     dependencies:
       '@typescript-eslint/experimental-utils': 2.20.0_eslint@6.5.1+typescript@3.4.5
-      '@typescript-eslint/parser': 2.5.0_eslint@6.5.1
+      '@typescript-eslint/parser': 2.5.0_eslint@6.5.1+typescript@3.4.5
       eslint: 6.5.1
       eslint-utils: 1.4.3
       functional-red-black-tree: 1.0.1
@@ -3215,10 +3216,10 @@ packages:
       typescript: '*'
     resolution:
       integrity: sha512-fEBy9xYrwG9hfBLFEwGW2lKwDRTmYzH3DwTmYbT+SMycmxAoPl0eGretnBFj/s+NfYBG63w/5c3lsvqqz5mYag==
-  /@typescript-eslint/experimental-utils/2.5.0_eslint@6.5.1:
+  /@typescript-eslint/experimental-utils/2.5.0_eslint@6.5.1+typescript@3.4.5:
     dependencies:
       '@types/json-schema': 7.0.3
-      '@typescript-eslint/typescript-estree': 2.5.0
+      '@typescript-eslint/typescript-estree': 2.5.0_typescript@3.4.5
       eslint: 6.5.1
       eslint-scope: 5.0.0
     dev: true
@@ -3226,13 +3227,14 @@ packages:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     peerDependencies:
       eslint: '*'
+      typescript: '*'
     resolution:
       integrity: sha512-UgcQGE0GKJVChyRuN1CWqDW8Pnu7+mVst0aWrhiyuUD1J9c+h8woBdT4XddCvhcXDodTDVIfE3DzGHVjp7tUeQ==
-  /@typescript-eslint/parser/2.5.0_eslint@6.5.1:
+  /@typescript-eslint/parser/2.5.0_eslint@6.5.1+typescript@3.4.5:
     dependencies:
       '@types/eslint-visitor-keys': 1.0.0
-      '@typescript-eslint/experimental-utils': 2.5.0_eslint@6.5.1
-      '@typescript-eslint/typescript-estree': 2.5.0
+      '@typescript-eslint/experimental-utils': 2.5.0_eslint@6.5.1+typescript@3.4.5
+      '@typescript-eslint/typescript-estree': 2.5.0_typescript@3.4.5
       eslint: 6.5.1
       eslint-visitor-keys: 1.1.0
     dev: true
@@ -3240,6 +3242,7 @@ packages:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     peerDependencies:
       eslint: ^5.0.0 || ^6.0.0
+      typescript: '*'
     resolution:
       integrity: sha512-9UBMiAwIDWSl79UyogaBdj3hidzv6exjKUx60OuZuFnJf56tq/UMpdPcX09YmGqE8f4AnAueYtBxV8IcAT3jdQ==
   /@typescript-eslint/typescript-estree/1.13.0:
@@ -3271,16 +3274,22 @@ packages:
         optional: true
     resolution:
       integrity: sha512-WlFk8QtI8pPaE7JGQGxU7nGcnk1ccKAJkhbVookv94ZcAef3m6oCE/jEDL6dGte3JcD7reKrA0o55XhBRiVT3A==
-  /@typescript-eslint/typescript-estree/2.5.0:
+  /@typescript-eslint/typescript-estree/2.5.0_typescript@3.4.5:
     dependencies:
       debug: 4.1.1
-      glob: 7.1.5
+      glob: 7.1.6
       is-glob: 4.0.1
       lodash.unescape: 4.0.1
       semver: 6.3.0
+      typescript: 3.4.5
     dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
+    peerDependencies:
+      typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     resolution:
       integrity: sha512-AXURyF8NcA3IsnbjNX1v9qbwa0dDoY9YPcKYR2utvMHoUcu3636zrz0gRWtVAyxbPCkhyKuGg6WZIyi2Fc79CA==
   /@webassemblyjs/ast/1.8.5:
@@ -6106,7 +6115,7 @@ packages:
   /eslint-config-react-app/5.0.2_692b58223344fd1bd6a9066f79e1733d:
     dependencies:
       '@typescript-eslint/eslint-plugin': 2.20.0_c393b18d397f2ea8e3a3c721535cfc91
-      '@typescript-eslint/parser': 2.5.0_eslint@6.5.1
+      '@typescript-eslint/parser': 2.5.0_eslint@6.5.1+typescript@3.4.5
       babel-eslint: 10.0.3_eslint@6.5.1
       confusing-browser-globals: 1.0.9
       eslint: 6.5.1
@@ -8034,6 +8043,12 @@ packages:
       node: '>=6'
     resolution:
       integrity: sha512-S1zBo1D6zcsyuC6PMmY5+55YMILQ9av8lotMx447Bq6SAgo/sDK6y6uUKmuYhW7eacnIhFfsPmCNYdDzsnnDCg==
+  /interpret/1.4.0:
+    dev: true
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha512-agE4QfB2Lkp9uICn7BAqoscw4SZP9kTE2hxiFI3jBPmXJfdqiahTbUuKGsMoN2GtqL9AxhYioAcVvgsb1HvRbA==
   /invariant/2.2.4:
     dependencies:
       loose-envify: 1.4.0
@@ -9623,6 +9638,8 @@ packages:
   /match-sorter/3.1.1:
     bundledDependencies:
       - remove-accents
+    dependencies:
+      remove-accents: 0.4.2
     dev: true
     resolution:
       integrity: sha512-Qlox3wRM/Q4Ww9rv1cBmYKNJwWVX/WC+eA3+1S3Fv4EOhrqyp812ZEfVFKQk0AP6RfzmPUUOwEZBbJ8IRt8SOw==
@@ -11477,6 +11494,7 @@ packages:
       prop-types: 15.7.2
       react: 16.11.0
       scheduler: 0.17.0
+    dev: true
     peerDependencies:
       react: ^16.0.0
     resolution:
@@ -11598,6 +11616,7 @@ packages:
       loose-envify: 1.4.0
       object-assign: 4.1.1
       prop-types: 15.7.2
+    dev: true
     engines:
       node: '>=0.10.0'
     resolution:
@@ -11727,6 +11746,14 @@ packages:
       node: '>= 4'
     resolution:
       integrity: sha512-yoQRMRrK1lszNtbkGyM4kN45AwylV5hMiuEveUBlxytUViWevjvX6w+tzJt1LH4cfUhWt4NZvy3ThIhu6+m5wQ==
+  /rechoir/0.6.2:
+    dependencies:
+      resolve: 1.17.0
+    dev: true
+    engines:
+      node: '>= 0.10'
+    resolution:
+      integrity: sha1-hSBLVNuoLVdC4oyWdW70OvUOM4Q=
   /recursive-readdir/2.2.2:
     dependencies:
       minimatch: 3.0.4
@@ -12656,6 +12683,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-y0Y709vLS5l5STXu4c9x16jjBow=
+  /remove-accents/0.4.2:
+    dev: true
+    resolution:
+      integrity: sha1-CkPTqq4egNuRngeuJUsoXZ4ce7U=
   /remove-trailing-separator/1.1.0:
     dev: true
     resolution:
@@ -12797,6 +12828,12 @@ packages:
     dev: true
     resolution:
       integrity: sha512-84oo6ZTtoTUpjgNEr5SJyzQhzL72gaRodsSfyxC/AXRvwu0Yse9H8eF9IpGo7b8YetZhlI6v7ZQ6bKBFV/6S7w==
+  /resolve/1.17.0:
+    dependencies:
+      path-parse: 1.0.6
+    dev: true
+    resolution:
+      integrity: sha512-ic+7JYiV8Vi2yzQGFWOkiZD5Z9z7O2Zhm9XMaTxdJExKasieFCr+yXZ/WmXsckHiKl12ar0y6XiXDx3m4RHn1w==
   /responselike/1.0.2:
     dependencies:
       lowercase-keys: 1.0.1
@@ -12989,6 +13026,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
+    dev: true
     resolution:
       integrity: sha512-7rro8Io3tnCPuY4la/NuI5F2yfESpnfZyT6TtkXnSWVkcu0BCDJ+8gk5ozUaFaxpIyNuWAPXrH0yFcSi28fnDA==
   /schema-utils/1.0.0:
@@ -13204,6 +13242,17 @@ packages:
     dev: true
     resolution:
       integrity: sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
+  /shelljs/0.8.4:
+    dependencies:
+      glob: 7.1.6
+      interpret: 1.4.0
+      rechoir: 0.6.2
+    dev: true
+    engines:
+      node: '>=4'
+    hasBin: true
+    resolution:
+      integrity: sha512-7gk3UZ9kOfPLIAbslLzyWeGiEqx9e3rxwZM0KE6EL8GlGwjym9Mrlx5/p33bWTu9YG6vcS4MBxYZDHYr5lr8BQ==
   /shellsubstitute/1.2.0:
     dev: true
     resolution:
@@ -13811,6 +13860,7 @@ packages:
       react: 16.11.0
       react-dom: 16.11.0_react@16.11.0
       react-is: 16.11.0
+      styled-components: 4.4.0_e4b4dd71152528f4d97c8ef5a2666498
       stylis: 3.5.4
       stylis-rule-sheet: 0.0.10_stylis@3.5.4
       supports-color: 5.5.0
@@ -15436,6 +15486,7 @@ specifiers:
   rollup: ^1.15.6
   rollup-plugin-babel: ^4.3.2
   rollup-plugin-peer-deps-external: ^2.2.2
+  shelljs: ^0.8.4
   styled-components: ^4.3.1
   toml-checker: 'github:cdfa/toml-checker#7d7544da33bfe56a7845aba665c8b0323649fd6a'
   typescript: '>=3.2.1 <3.5.0'

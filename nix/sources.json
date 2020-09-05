@@ -1,0 +1,26 @@
+{
+    "nix-linter": {
+        "branch": "master",
+        "description": "Linter for the Nix expression language",
+        "homepage": "",
+        "owner": "Synthetica9",
+        "repo": "nix-linter",
+        "rev": "8f1037ddb3c03a12f285b4a9702e73c0eb15f972",
+        "sha256": "0ghlr8pvhps75y4c4nxkdfkl0v0rrk7mc1n5nwp3cfyyn2zl6w94",
+        "type": "tarball",
+        "url": "https://github.com/Synthetica9/nix-linter/archive/8f1037ddb3c03a12f285b4a9702e73c0eb15f972.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nixpkgs": {
+        "branch": "nixpkgs-unstable",
+        "description": "Nix Packages collection",
+        "homepage": null,
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "49f820d217f4069472ca8f8f96d1c5681a747f7d",
+        "sha256": "0dg33j2a0w11gsk6vlkwry4zgfm0wxqbmf00s2mirvvwr26mbqww",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/49f820d217f4069472ca8f8f96d1c5681a747f7d.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    }
+}
