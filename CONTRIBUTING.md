@@ -1,5 +1,11 @@
 # Contributing
 
+## Setup
+If you have [direnv](direnv.net/) and [nix](https://nixos.org/) installed, all you have to do is `cd` into the directory where you clones the repository!
+
+Otherwise, look at `shell.nix` and `nix/dev-dependencies.nix` for development dependencies and any setup you might want to do.
+Note that you don't need a the linter/formatter if you don't need to edit a file for which is used.
+
 ## Developing in the docs
 
 This project uses [docz](https://www.docz.site) for documentation generation, but this is also where you can
