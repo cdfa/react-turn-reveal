@@ -1,4 +1,5 @@
 { sources ? import ../../../nix/sources.nix
+, devDependencies ? import ../../../nix/dev-dependencies.nix { }
 , pkgs ? import sources.nixpkgs { }
 }:
 
@@ -13,9 +14,5 @@ pkgs.dockerTools.buildImage {
     gzip
     busybox
     cacert
-
-    # package deps
-    nodejs-12_x
-    nodePackages.pnpm
-  ];
+  ] ++ devDependencies;
 }

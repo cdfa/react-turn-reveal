@@ -1,4 +1,5 @@
-{ pkgs ? import ./nix { } }:
+{ pkgs ? import ./nix { }
+, extraDevDependencies ? import ./nix/dev-dependencies.nix { }}:
 let
   # To enable running Podman in rootless mode, follow: https://wiki.archlinux.org/index.php/Linux_Containers#Enable_support_to_run_unprivileged_containers_(optional)
 
@@ -42,12 +43,8 @@ pkgs.mkShell {
     slirp4netns # User-mode networking for unprivileged namespaces
     fuse-overlayfs # CoW for images, much faster than default vfs
 
-    nodePackages.pnpm
-    nodejs-12_x
     circleci-cli
-    nix-linter
-    nixpkgs-fmt
-  ];
+  ] ++ extraDevDependencies;
 
   # Only run with
   shellHook = ''
