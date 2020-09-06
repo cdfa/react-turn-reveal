@@ -50,6 +50,8 @@ pkgs.mkShell {
   shellHook = ''
     # Install required configuration
     ${podmanSetupScript}
+
+    alias npm="pnpm"
   '';
 
 }
