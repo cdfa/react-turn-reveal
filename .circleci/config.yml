@@ -22,7 +22,7 @@ commands:
 executors:
   custom-executor:
     docker:
-      - image: cdfa/cci-react-turn-reveal-primary:1.0.5
+      - image: cdfa/cci-react-turn-reveal-primary:2.0.0
     working_directory: ~/react-turn-reveal
 
 jobs:

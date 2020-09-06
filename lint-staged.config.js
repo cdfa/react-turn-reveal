@@ -7,12 +7,12 @@ module.exports = {
   ],
   ".circleci/config.yml":
     'cross-env-shell test "a$CI" = a1 || circleci-cli config validate',
-  ".circleci/images/primary/Dockerfile": "dockerfile-utils lint",
   "netlify.toml": "toml-checker",
   "{!(nix)/**/*,nix/**/!(sources)}.nix": [
     "nixpkgs-fmt",
     "git add",
-    "nix-linter"
+    "nix-linter -Wno-UnusedArg"
   ],
-  "shell.nix": "nix-shell --run ''"
+  "shell.nix": "nix-shell --run ''",
+  ".circleci/images/primary/default.nix": "nix-build --no-out-link"
 };
