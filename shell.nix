@@ -52,6 +52,7 @@ pkgs.mkShell {
     ${podmanSetupScript}
 
     alias npm="pnpm"
+    export NPM_CHECK_INSTALLER=pnpm
   '';
 
 }

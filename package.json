@@ -102,6 +102,7 @@
     "jest": "^24.8.0",
     "jest-transformer-mdx": "^2.1.0",
     "lint-staged": "^9.2.0",
+    "npm-check": "^5.9.2",
     "npm-package-json-lint": "^4.0.0",
     "npm-package-json-lint-config-default": "^2.0.0",
     "npm-run-all": "^4.1.5",
