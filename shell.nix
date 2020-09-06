@@ -53,6 +53,10 @@ pkgs.mkShell {
 
     alias npm="pnpm"
     export NPM_CHECK_INSTALLER=pnpm
+
+    if [ ! -d "node_modules" ]; then
+      pnpm i
+    fi
   '';
 
 }
