@@ -69,5 +69,6 @@
     "javascript",
     "javascriptreact",
     { "language": "mdx", "autoFix": true }
-  ]
+  ],
+  "nixEnvSelector.nixShellConfig": "${workspaceRoot}/shell.nix"
 }

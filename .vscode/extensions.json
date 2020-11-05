@@ -26,6 +26,8 @@
     "esbenp.prettier-vscode",
     "2gua.rainbow-brackets",
     "voldemortensen.rainbow-tags",
+    "aaronduino.nix-lsp",
+    "arrterian.nix-env-selector"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": [
