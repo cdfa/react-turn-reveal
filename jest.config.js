@@ -27,7 +27,6 @@ module.exports = {
   ],
 
   transform: {
-    "^.+\\.[t|j]sx?$": "babel-jest",
-    "^.+\\.mdx?$": "jest-transformer-mdx"
+    "^.+\\.[t|j]sx?$": "babel-jest"
   }
 };
