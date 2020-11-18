@@ -1,4 +1,6 @@
-# react-turn-reveal
+# Unmaintained. See notice below
+
+## react-turn-reveal
 
 [![npm (scoped)](https://img.shields.io/npm/v/@cdfa/react-turn-reveal)](https://www.npmjs.com/package/@cdfa/react-turn-reveal)
 [![CircleCI](https://img.shields.io/circleci/build/github/cdfa/react-turn-reveal)](https://circleci.com/gh/cdfa/react-turn-reveal)
@@ -10,6 +12,16 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 > A 3D reveal animation library for React.
+
+This project started when I thought I could pull something I made into a package easily.
+However, during the development, I started to take it on as a challenge to create the most comprehensive development environment I could.
+After a long time, I finally published the project. All was well.
+
+However, a year later, I wanted to update to `docz` 2, since this would resolve various issues I had ran into and improve the documentation.
+My progress can be viewed on the `feature/docz-2` branch, but apparently I have also created dependency hell with my comprehensive development environment.
+
+As much as I would like to fix it, I have better things to do with my time.
+Feel free to take over the project if you want. There is surprisingly little actual code :)
 
 ## Install
 
