@@ -7,6 +7,7 @@
     "remark-lint-match-punctuation",
     "remark-lint-no-empty-sections",
     "remark-lint-no-long-code",
-    "remark-lint-no-url-trailing-slash"
+    "remark-lint-no-url-trailing-slash",
+    ["remark-lint-fenced-code-flag", false]
   ]
 }

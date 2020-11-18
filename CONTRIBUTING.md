@@ -42,8 +42,12 @@ If you've edited it, you'll need [their CLI](https://circleci.com/docs/2.0/local
 
 1. `npm login`
 2. Create a `.npmrc` for publishing to GitHub and enter your token:
-   //npm.pkg.github.com/:\_authToken=<TOKEN>
-   registry=<https://npm.pkg.github.com/cdfa>
+
+```
+    //npm.pkg.github.com/:\_authToken=<TOKEN>
+    registry=<https://npm.pkg.github.com/cdfa>
+```
+
 3. Encrypt it with `gpg`: `gpg -se .npmrc`.
 4. Now you can remove the file `rm .npmrc`. It will be decrypted again when publishing.
 

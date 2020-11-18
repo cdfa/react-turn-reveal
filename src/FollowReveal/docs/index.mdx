@@ -1,6 +1,7 @@
 ---
 name: FollowReveal
 route: /follow-reveal
+menu: Components
 ---
 
 # FollowReveal
@@ -19,15 +20,17 @@ import FollowReveal from "..";
 
 ## Basic Usage
 
-<Playground style={{ display: "flex", justifyContent: "center" }}>
+<Playground>
   {() => {
     const perspective = 400;
     return (
-      <div style={{ position: "relative", perspective: perspective + "px" }}>
-        <FollowReveal perspective={perspective}>
-          <Front>More info</Front>
-        </FollowReveal>
-        <PlaceHolderImage />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ position: "relative", perspective: perspective + "px" }}>
+          <FollowReveal perspective={perspective}>
+            <Front>More info</Front>
+          </FollowReveal>
+          <PlaceHolderImage />
+        </div>
       </div>
     );
   }}
